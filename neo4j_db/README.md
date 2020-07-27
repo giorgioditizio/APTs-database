@@ -76,4 +76,14 @@ This node represents a version related to a specific software product for which 
 
 ### Relationships
 The relationships link different nodes types.
-- APT --uses-> Malware: defines which malware is used by a certain APT.
+- *APT -uses-> Malware* defines which malware is used by a certain APT.
+- *APT -uses-> Tool* defines which tool is used by a certain APT.
+- *APT -uses-> Technique* defines which technique is used by a certain APT.
+- *APT -origin-> Country* defines the allegedly country of origin of an APT.
+- *APT <-attributed_to- Campaign* defines a campaign allegedly to be attributed to a certain APT.
+- *Campaign -targets-> Vulnerability* defines which software vulnerability is exploited in a specific campaign.
+- *APT -targets-> Identity* defines which sector is targeted by a certain APT.
+- *APT <-alias- Alias* defines a relation between the names associated by companies to a certain APT.
+- *Product -has-> Version* defines which version is associated to a product.
+- *Version -vulnerable_to-> Vulnerability* defines which CVE affects a version of a product.
+- *Campaign -employs-> Technique* defines which technique is used to perform the initial access phase. 
