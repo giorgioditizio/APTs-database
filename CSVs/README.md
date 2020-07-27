@@ -25,6 +25,9 @@ MATCH p=(country:Country)<-[:origin]-(n:APT)<-[:attributed_to]-(c:Campaign),q=(c
 
 ## campaigns_vulns_products
 This CSV contains information about the campaigns associated to a certain APT that exploit a software vulnerability. It is obtained from the Neo4j database with the following query:
+```
+MATCH (n:APT)<-[:attributed_to]-(c:Campaign)-[:targets]->(v:Vulnerability)<-[:vulnerable_to]-(ver:Version)<-[:has]-(p:Product) RETURN DISTINCT n.name AS APT, id(c) AS campaign, v.name AS vulnerability,c.date_start AS exploited_time, v.publishedDate AS published_time, v.reservedDate as reserved_time, p.name AS product
+```
 - ***APT*** contains the name of the APT (based on MITRE Att\&ck)
 - ***campaign*** contains the ID of the campaign, unique among all campaigns.
 - ***vulnerability*** contains the CVE ID employed.
@@ -35,6 +38,9 @@ This CSV contains information about the campaigns associated to a certain APT th
 
 ## campaigns_vulns_products_versions
 This CSV contains information about the campaigns associated to a certain APT that exploit a software vulnerability with additional information about the version affected. This data contains ***ONLY*** products running *Windows O.S.*. It is obtained from the Neo4j database with the following query:
+```
+MATCH (n:APT)<-[:attributed_to]-(c:Campaign)-[:targets]->(v:Vulnerability)<-[:vulnerable_to]-(ver:Version)<-[:has]-(p:Product) WHERE ver.os CONTAINS \"windows\" OR ver.os CONTAINS \"*\" RETURN DISTINCT n.name AS APT, id(c) AS campaign, v.name AS vulnerability,c.date_start AS exploited_time, v.publishedDate AS published_time, v.reservedDate AS reserved_time, p.name AS product, ver.name AS version, ver.update AS update, ver.os AS os
+```
 - ***APT*** contains the name of the APT (based on MITRE Att\&ck)
 - ***campaign*** contains the ID of the campaign, unique among all campaigns.
 - ***vulnerability*** contains the CVE ID employed.
