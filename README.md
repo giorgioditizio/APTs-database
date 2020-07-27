@@ -7,10 +7,8 @@ Bla bla
 
 ## CSV files
 
-The following CSV files are utilized for the data analysis and simulation:
-- [***campaigns_products***](###campaigns_products)
-- [***campaigns_vulnerabilities***](###campaigns_vulnerabilities)
-- [***campaigns_vulns_products***](###campaigns_vulns_products)
-- [***campaigns_vulns_products_versions***](###campaigns_vulns_products_versions)
+Bla bla
 
-### campaigns_products 
+## Paper
+
+Bla bla
