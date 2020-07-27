@@ -34,7 +34,7 @@ MATCH (n:APT)<-[:attributed_to]-(c:Campaign)-[:targets]->(v:Vulnerability)<-[:vu
 - ***exploited_time*** contains the date when the campaign started in the format (YYYY-MM-DD, DD is always the first day of the month as we have only month granularity).
 - ***reserved_time*** contains the date when the CVE is reserved by MITRE in the format (YYYY-MM-DD, DD is always the first day of the month as we have only month granularity).
 - ***published_time*** contains the date when the CVE is published by NVD in the format (YYYY-MM-DD, DD is always the first day of the month as we have only month granularity).
-- ***product*** contains the name of the product affected by the CVE in ***vulnerability***.
+- ***product*** contains the name of the product affected by the CVE in the ***vulnerability*** field.
 
 ## campaigns_vulns_products_versions
 This CSV contains information about the campaigns associated to a certain APT that exploit a software vulnerability with additional information about the version affected. This data contains ***ONLY*** products running *Windows O.S.*. It is obtained from the Neo4j database with the following query:
@@ -48,8 +48,8 @@ MATCH (n:APT)<-[:attributed_to]-(c:Campaign)-[:targets]->(v:Vulnerability)<-[:vu
 - ***reserved_time*** contains the date when the CVE is reserved by MITRE in the format (YYYY-MM-DD, DD is always the first day of the month as we have only month granularity).
 - ***published_time*** contains the date when the CVE is published by NVD in the format (YYYY-MM-DD, DD is always the first day of the month as we have only month granularity).
 - ***product*** contains the name of the product affected by the CVE in ***vulnerability***.
-- ***version*** contains the version number of the product affected by the CVE in ***vulnerability***.
-- ***update*** contains the update number of the product affected by the CVE in ***vulnerability***, * if none.
+- ***version*** contains the version number of the product affected by the CVE in the ***vulnerability*** field.
+- ***update*** contains the update number of the product affected by the CVE in the ***vulnerability*** field, * if none.
 - ***os*** contains the O.S. with which the version affected can run. In this case only *Windows* O.S. is considered.
 
 
