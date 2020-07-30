@@ -1,18 +1,11 @@
 # APTs-database
-A repository with data about APTs
+This is the repository with data about APTs.
 
-## Neo4j database
+## neo4j_db
+In this folder you can find the dump of the Neo4j database and the raw data in case you want to create your own database from scratch.
 
-Bla bla
-
-## CSV data
-
-Bla bla
-
-## Sources
-
-Bla bla
+## data
+In this folder you can find the CSV file extracted from the Neo4j database and utilized for the data analysis and simulation in our paper.
 
 ## Paper
-
-Bla bla
+Hopefully one day...
