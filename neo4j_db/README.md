@@ -19,7 +19,7 @@ Each node contains one or more field.
 
 #### APT
 This node represents an APT we considered in the analysis.
-- ***labels*** describes the type of APT. For example, possible values are activist, criminal, crime-syndicate 33 , nation-state, etc.
+- ***labels*** contains the type of APT. For example, possible values are activist, criminal, crime-syndicate 33 , nation-state, etc.
 - ***name*** contains the name of the threat group as in MITRE Att\&ck.
 - ***description*** contains a short description of the group.
 - ***goals*** contains the goals of the APT. For example, financial gain, espionage, and sabotage.
