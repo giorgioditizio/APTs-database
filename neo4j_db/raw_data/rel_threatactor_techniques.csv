@@ -1,0 +1,1253 @@
+name,technique
+APT1,Credential Dumping
+APT1,Command-Line Interface
+APT1,Remote Desktop Protocol
+APT1,Data from Local System
+APT1,Data Compressed
+APT1,Scripting
+APT1,Process Discovery
+APT1,Email Collection
+APT1,Masquerading
+APT1,System Network Connections Discovery
+APT1,Account Discovery
+APT1,Automated Collection
+APT1,Pass the Hash
+APT1,Network Share Discovery
+APT1,System Service Discovery
+APT1,System Network Configuration Discovery
+APT12,User Execution
+APT12,Exploitation for Client Execution
+APT12,Spearphishing Attachment
+APT12,Web Service
+APT18,External Remote Services
+APT18,File and Directory Discovery
+APT18,Obfuscated Files or Information
+APT18,Standard Application Layer Protocol
+APT18,Valid Accounts
+APT18,Commonly Used Port
+APT18,Registry Run Keys / Startup Folder
+APT18,Remote File Copy
+APT18,Command-Line Interface
+APT18,Scheduled Task
+APT18,File Deletion
+APT18,System Information Discovery
+APT19,System Network Configuration Discovery
+APT19,User Execution
+APT19,Standard Application Layer Protocol
+APT19,Commonly Used Port
+APT19,Data Encoding
+APT19,Regsvr32
+APT19,Scripting
+APT19,System Information Discovery
+APT19,Rundll32
+APT19,Registry Run Keys / Startup Folder
+APT19,System Owner/User Discovery
+APT19,DLL Side-Loading
+APT19,Modify Registry
+APT19,PowerShell
+APT19,Drive-by Compromise
+APT19,Spearphishing Attachment
+APT19,Modify Existing Service
+APT19,Deobfuscate/Decode Files or Information
+APT19,Obfuscated Files or Information
+APT19,Hidden Window
+APT28,Data Obfuscation
+APT28,Replication Through Removable Media
+APT28,Email Collection
+APT28,Remote File Copy
+APT28,Dynamic Data Exchange
+APT28,Hidden Files and Directories
+APT28,Timestomp
+APT28,Spearphishing Link
+APT28,Peripheral Device Discovery
+APT28,Screen Capture
+APT28,File and Directory Discovery
+APT28,Indicator Removal on Host
+APT28,User Execution
+APT28,Component Object Model Hijacking
+APT28,Spearphishing Attachment
+APT28,Data from Information Repositories
+APT28,Logon Scripts
+APT28,Command-Line Interface
+APT28,Network Sniffing
+APT28,Bootkit
+APT28,Exploitation for Privilege Escalation
+APT28,Exploitation for Defense Evasion
+APT28,Automated Collection
+APT28,Access Token Manipulation
+APT28,Data from Removable Media
+APT28,Data Staged
+APT28,Pass the Hash
+APT28,Valid Accounts
+APT28,Trusted Relationship
+APT28,Rundll32
+APT28,Standard Application Layer Protocol
+APT28,PowerShell
+APT28,Communication Through Removable Media
+APT28,Data from Local System
+APT28,Credential Dumping
+APT28,File Deletion
+APT28,Obfuscated Files or Information
+APT28,Rootkit
+APT28,Data Compressed
+APT28,Scripting
+APT28,Connection Proxy
+APT28,Process Discovery
+APT28,Exploitation of Remote Services
+APT28,Input Capture
+APT28,Deobfuscate/Decode Files or Information
+APT28,Exploitation for Client Execution
+APT28,Office Application Startup
+APT28,Template Injection
+APT28,Custom Cryptographic Protocol
+APT28,Commonly Used Port
+APT28,Application Access Token
+APT28,Steal Application Access Token
+APT28,Hidden Window
+APT29,Registry Run Keys / Startup Folder
+APT29,Scripting
+APT29,Exploitation for Client Execution
+APT29,Accessibility Features
+APT29,Bypass User Account Control
+APT29,PowerShell
+APT29,User Execution
+APT29,Windows Management Instrumentation Event Subscription
+APT29,Software Packing
+APT29,Multi-hop Proxy
+APT29,Spearphishing Attachment
+APT29,Windows Management Instrumentation
+APT29,Pass the Ticket
+APT29,Domain Fronting
+APT29,File Deletion
+APT29,Standard Non-Application Layer Protocol
+APT29,Spearphishing Link
+APT29,Rundll32
+APT29,Obfuscated Files or Information
+APT29,Scheduled Task
+APT29,Commonly Used Port
+APT29,Shortcut Modification
+APT29,Indicator Removal on Host
+APT3,Data Staged
+APT3,Account Discovery
+APT3,Input Capture
+APT3,System Network Configuration Discovery
+APT3,Accessibility Features
+APT3,Remote Desktop Protocol
+APT3,Data from Local System
+APT3,Redundant Access
+APT3,Scheduled Task
+APT3,Graphical User Interface
+APT3,File and Directory Discovery
+APT3,Remote File Copy
+APT3,Connection Proxy
+APT3,Remote System Discovery
+APT3,Uncommonly Used Port
+APT3,Command-Line Interface
+APT3,Valid Accounts
+APT3,Scripting
+APT3,Permission Groups Discovery
+APT3,Process Discovery
+APT3,Credential Dumping
+APT3,PowerShell
+APT3,New Service
+APT3,Multi-Stage Channels
+APT3,System Network Connections Discovery
+APT3,Exfiltration Over Command and Control Channel
+APT3,Rundll32
+APT3,Software Packing
+APT3,Standard Non-Application Layer Protocol
+APT3,Obfuscated Files or Information
+APT3,System Owner/User Discovery
+APT3,Create Account
+APT3,Data Compressed
+APT3,Indicator Removal from Tools
+APT3,Commonly Used Port
+APT3,System Information Discovery
+APT3,Account Manipulation
+APT3,Registry Run Keys / Startup Folder
+APT3,Windows Admin Shares
+APT3,DLL Side-Loading
+APT3,Brute Force
+APT3,File Deletion
+APT3,Credentials in Files
+APT3,Hidden Window
+APT32,Application Deployment Software
+APT32,Regsvr32
+APT32,System Owner/User Discovery
+APT32,Web Shell
+APT32,Exploitation for Privilege Escalation
+APT32,PowerShell
+APT32,Pass the Hash
+APT32,Account Discovery
+APT32,Modify Existing Service
+APT32,NTFS File Attributes
+APT32,Remote System Discovery
+APT32,Timestomp
+APT32,Obfuscated Files or Information
+APT32,Indicator Removal on Host
+APT32,Binary Padding
+APT32,Remote File Copy
+APT32,Standard Application Layer Protocol
+APT32,Spearphishing Link
+APT32,System Network Connections Discovery
+APT32,New Service
+APT32,Scheduled Task
+APT32,Drive-by Compromise
+APT32,Commonly Used Port
+APT32,System Information Discovery
+APT32,Windows Management Instrumentation
+APT32,Credential Dumping
+APT32,Office Application Startup
+APT32,System Network Configuration Discovery
+APT32,Spearphishing Attachment
+APT32,Signed Script Proxy Execution
+APT32,User Execution
+APT32,Valid Accounts
+APT32,Masquerading
+APT32,Scripting
+APT32,Mshta
+APT32,Custom Command and Control Protocol
+APT32,Registry Run Keys / Startup Folder
+APT32,Pass the Ticket
+APT32,Network Service Scanning
+APT32,Windows Admin Shares
+APT32,DLL Side-Loading
+APT32,Uncommonly Used Port
+APT32,Exploitation for Client Execution
+APT32,Exfiltration Over Command and Control Channel
+APT32,Data Encrypted
+APT32,File and Directory Discovery
+APT32,Query Registry
+APT32,Data Compressed
+APT32,Modify Registry
+APT32,Service Execution
+APT32,Hidden Files and Directories
+APT32,File Deletion
+APT32,File and Directory Permissions Modification
+APT32,Command-Line Interface
+APT32,Hidden Window
+APT33,Spearphishing Link
+APT33,User Execution
+APT33,Valid Accounts
+APT33,Exploitation for Client Execution
+APT33,Network Sniffing
+APT33,Credential Dumping
+APT33,Data Compressed
+APT33,Remote File Copy
+APT33,PowerShell
+APT33,Registry Run Keys / Startup Folder
+APT33,Standard Application Layer Protocol
+APT33,Exfiltration Over Alternative Protocol
+APT33,Uncommonly Used Port
+APT33,Scheduled Task
+APT33,Data Encoding
+APT33,Obfuscated Files or Information
+APT33,Standard Cryptographic Protocol
+APT33,Exploitation for Privilege Escalation
+APT33,Commonly Used Port
+APT33,Brute Force
+APT33,Execution Guardrails
+APT37,Exploitation for Client Execution
+APT37,Process Discovery
+APT37,Data from Local System
+APT37,User Execution
+APT37,Command-Line Interface
+APT37,Credential Dumping
+APT37,System Information Discovery
+APT37,System Owner/User Discovery
+APT37,Remote File Copy
+APT37,Audio Capture
+APT37,Registry Run Keys / Startup Folder
+APT37,Execution through API
+APT37,Custom Command and Control Protocol
+APT37,Obfuscated Files or Information
+APT37,Spearphishing Attachment
+APT37,Process Injection
+APT37,Drive-by Compromise
+APT37,Standard Application Layer Protocol
+APT37,Disk Structure Wipe
+APT37,Web Service
+APT37,Commonly Used Port
+APT37,Scripting
+APT37,Code Signing
+APT37,Dynamic Data Exchange
+APT37,Peripheral Device Discovery
+APT37,Bypass User Account Control
+APT37,System Shutdown/Reboot
+APT38,Standard Application Layer Protocol
+APT38,Input Capture
+APT38,Process Discovery
+APT38,Modify Registry
+APT38,Drive-by Compromise
+APT38,Clipboard Data
+APT38,Software Packing
+APT38,Command-Line Interface
+APT38,Remote File Copy
+APT38,File Deletion
+APT38,Indicator Removal on Host
+APT38,Runtime Data Manipulation
+APT38,Transmitted Data Manipulation
+APT38,Stored Data Manipulation
+APT38,Disk Structure Wipe
+APT38,Data Encrypted for Impact
+APT38,Data Destruction
+APT38,System Network Connections Discovery
+APT38,System Shutdown/Reboot
+APT39,Spearphishing Attachment
+APT39,Spearphishing Link
+APT39,Remote Desktop Protocol
+APT39,Registry Run Keys / Startup Folder
+APT39,Scheduled Task
+APT39,Shortcut Modification
+APT39,System Network Configuration Discovery
+APT39,Data Compressed
+APT39,Connection Proxy
+APT39,Credential Dumping
+APT39,Scripting
+APT39,Valid Accounts
+APT39,Network Service Scanning
+APT39,Remote Services
+APT39,Web Shell
+APT39,User Execution
+APT39,Software Packing
+APT39,System Owner/User Discovery
+APT41,Code Signing
+APT41,Rootkit
+APT41,Bootkit
+APT41,Brute Force
+APT41,Network Service Scanning
+APT41,Remote Desktop Protocol
+APT41,Credential Dumping
+APT41,Accessibility Features
+APT41,PowerShell
+APT41,Masquerading
+APT41,Spearphishing Attachment
+APT41,External Remote Services
+APT41,Connection Proxy
+APT41,Domain Generation Algorithms
+APT41,Supply Chain Compromise
+APT41,Input Capture
+APT41,Valid Accounts
+APT41,Windows Management Instrumentation
+APT41,System Owner/User Discovery
+APT41,Registry Run Keys / Startup Folder
+APT41,Indicator Removal on Host
+APT41,Modify Registry
+APT41,Data Compressed
+APT41,Resource Hijacking
+APT41,Data Encrypted for Impact
+APT41,Clear Command History
+APT41,Web Service
+APT41,Modify Existing Service
+APT41,Scheduled Task
+APT41,Command-Line Interface
+APT41,Create Account
+APT41,System Network Configuration Discovery
+APT41,Standard Application Layer Protocol
+APT41,Process Injection
+APT41,Fallback Channels
+APT41,Compiled HTML File
+APT41,File Deletion
+APT41,DLL Side-Loading
+APT41,Exploitation for Client Execution
+APT41,System Network Connections Discovery
+APT41,Network Share Discovery
+BRONZE BUTLER,Data Compressed
+BRONZE BUTLER,User Execution
+BRONZE BUTLER,Bypass User Account Control
+BRONZE BUTLER,Scheduled Task
+BRONZE BUTLER,Masquerading
+BRONZE BUTLER,Web Service
+BRONZE BUTLER,File and Directory Discovery
+BRONZE BUTLER,Screen Capture
+BRONZE BUTLER,Standard Application Layer Protocol
+BRONZE BUTLER,Drive-by Compromise
+BRONZE BUTLER,Credential Dumping
+BRONZE BUTLER,Deobfuscate/Decode Files or Information
+BRONZE BUTLER,Account Discovery
+BRONZE BUTLER,Standard Cryptographic Protocol
+BRONZE BUTLER,File Deletion
+BRONZE BUTLER,Remote System Discovery
+BRONZE BUTLER,Data from Local System
+BRONZE BUTLER,System Time Discovery
+BRONZE BUTLER,Scripting
+BRONZE BUTLER,Exploitation for Client Execution
+BRONZE BUTLER,Remote File Copy
+BRONZE BUTLER,Registry Run Keys / Startup Folder
+BRONZE BUTLER,Custom Cryptographic Protocol
+BRONZE BUTLER,Data Encrypted
+BRONZE BUTLER,Binary Padding
+BRONZE BUTLER,Pass the Ticket
+BRONZE BUTLER,Spearphishing Attachment
+BRONZE BUTLER,Data Encoding
+BRONZE BUTLER,Data from Network Shared Drive
+BRONZE BUTLER,PowerShell
+BRONZE BUTLER,Command-Line Interface
+BlackOasis,Obfuscated Files or Information
+Carbanak,Masquerading
+Carbanak,Valid Accounts
+Carbanak,New Service
+Carbanak,Web Service
+Carbanak,Rundll32
+Carbanak,Disabling Security Tools
+Carbanak,Remote Access Tools
+Cobalt Group,Remote Desktop Protocol
+Cobalt Group,CMSTP
+Cobalt Group,Redundant Access
+Cobalt Group,Standard Application Layer Protocol
+Cobalt Group,Scheduled Task
+Cobalt Group,User Execution
+Cobalt Group,Spearphishing Link
+Cobalt Group,Network Service Scanning
+Cobalt Group,New Service
+Cobalt Group,Remote File Copy
+Cobalt Group,Bypass User Account Control
+Cobalt Group,Obfuscated Files or Information
+Cobalt Group,Exploitation for Privilege Escalation
+Cobalt Group,Spearphishing Attachment
+Cobalt Group,Process Injection
+Cobalt Group,Regsvr32
+Cobalt Group,File Deletion
+Cobalt Group,Dynamic Data Exchange
+Cobalt Group,Remote Access Tools
+Cobalt Group,Registry Run Keys / Startup Folder
+Cobalt Group,Exploitation for Client Execution
+Cobalt Group,Logon Scripts
+Cobalt Group,Standard Cryptographic Protocol
+Cobalt Group,Security Software Discovery
+Cobalt Group,Scripting
+Cobalt Group,XSL Script Processing
+Cobalt Group,PowerShell
+Cobalt Group,Command-Line Interface
+Cobalt Group,Signed Binary Proxy Execution
+CopyKittens,Rundll32
+CopyKittens,Data Compressed
+CopyKittens,PowerShell
+CopyKittens,Data Encrypted
+CopyKittens,Code Signing
+CopyKittens,Hidden Window
+Dark Caracal,Scripting
+Dark Caracal,User Execution
+Dark Caracal,Spearphishing via Service
+Dark Caracal,Data from Local System
+Dark Caracal,File and Directory Discovery
+Dark Caracal,Drive-by Compromise
+Dark Caracal,Compiled HTML File
+Dark Caracal,Registry Run Keys / Startup Folder
+Dark Caracal,Screen Capture
+Dark Caracal,Software Packing
+Dark Caracal,Standard Application Layer Protocol
+Dark Caracal,Obfuscated Files or Information
+DarkHydrus,Forced Authentication
+DarkHydrus,Spearphishing Attachment
+DarkHydrus,Template Injection
+DarkHydrus,User Execution
+DarkHydrus,PowerShell
+DarkHydrus,Hidden Window
+Darkhotel,Replication Through Removable Media
+Darkhotel,Code Signing
+Darkhotel,Taint Shared Content
+Darkhotel,System Network Configuration Discovery
+Darkhotel,User Execution
+Darkhotel,Input Capture
+Darkhotel,Obfuscated Files or Information
+Darkhotel,Drive-by Compromise
+Darkhotel,Scripting
+Darkhotel,Process Discovery
+Darkhotel,Spearphishing Attachment
+Darkhotel,Deobfuscate/Decode Files or Information
+Darkhotel,Security Software Discovery
+Darkhotel,System Information Discovery
+Darkhotel,Shortcut Modification
+Darkhotel,Registry Run Keys / Startup Folder
+Deep Panda,Regsvr32
+Deep Panda,Windows Management Instrumentation
+Deep Panda,Indicator Removal from Tools
+Deep Panda,Windows Admin Shares
+Deep Panda,Remote System Discovery
+Deep Panda,Scripting
+Deep Panda,Process Discovery
+Deep Panda,Accessibility Features
+Deep Panda,PowerShell
+Deep Panda,Web Shell
+Deep Panda,Hidden Window
+Dragonfly 2.0,Masquerading
+Dragonfly 2.0,Permission Groups Discovery
+Dragonfly 2.0,User Execution
+Dragonfly 2.0,Command-Line Interface
+Dragonfly 2.0,Standard Application Layer Protocol
+Dragonfly 2.0,Create Account
+Dragonfly 2.0,Disabling Security Tools
+Dragonfly 2.0,Modify Registry
+Dragonfly 2.0,Template Injection
+Dragonfly 2.0,Email Collection
+Dragonfly 2.0,Drive-by Compromise
+Dragonfly 2.0,Credential Dumping
+Dragonfly 2.0,Remote System Discovery
+Dragonfly 2.0,Indicator Removal on Host
+Dragonfly 2.0,Scheduled Task
+Dragonfly 2.0,File and Directory Discovery
+Dragonfly 2.0,Network Share Discovery
+Dragonfly 2.0,Valid Accounts
+Dragonfly 2.0,Data from Local System
+Dragonfly 2.0,Query Registry
+Dragonfly 2.0,Forced Authentication
+Dragonfly 2.0,Scripting
+Dragonfly 2.0,Screen Capture
+Dragonfly 2.0,System Network Configuration Discovery
+Dragonfly 2.0,File Deletion
+Dragonfly 2.0,Remote File Copy
+Dragonfly 2.0,Shortcut Modification
+Dragonfly 2.0,Web Shell
+Dragonfly 2.0,Spearphishing Attachment
+Dragonfly 2.0,Brute Force
+Dragonfly 2.0,Spearphishing Link
+Dragonfly 2.0,External Remote Services
+Dragonfly 2.0,Registry Run Keys / Startup Folder
+Dragonfly 2.0,Remote Desktop Protocol
+Dragonfly 2.0,PowerShell
+Dragonfly 2.0,System Owner/User Discovery
+Dragonfly 2.0,Data Staged
+Dragonfly 2.0,Account Manipulation
+Dragonfly 2.0,Commonly Used Port
+Dragonfly 2.0,Account Discovery
+Dragonfly 2.0,Data Compressed
+Dust Storm,Obfuscated Files or Information
+Dust Storm,Data from Local System
+Dust Storm,File and Directory Discovery
+Elderwood,Software Packing
+Elderwood,Supply Chain Compromise
+Elderwood,Drive-by Compromise
+Elderwood,Spearphishing Link
+Elderwood,Obfuscated Files or Information
+Elderwood,Exploitation for Client Execution
+Elderwood,Spearphishing Attachment
+Elderwood,User Execution
+Elderwood,Remote File Copy
+Equation,Component Firmware
+Equation,Execution Guardrails
+Equation,Peripheral Device Discovery
+FIN10,PowerShell
+FIN10,Scripting
+FIN10,File Deletion
+FIN10,System Owner/User Discovery
+FIN10,Registry Run Keys / Startup Folder
+FIN10,Scheduled Task
+FIN10,Valid Accounts
+FIN10,Remote Desktop Protocol
+FIN10,Remote File Copy
+FIN4,User Execution
+FIN4,Input Prompt
+FIN4,Valid Accounts
+FIN4,Multi-hop Proxy
+FIN4,Email Collection
+FIN4,Spearphishing Attachment
+FIN4,Standard Application Layer Protocol
+FIN4,Spearphishing Link
+FIN4,Input Capture
+FIN4,Scripting
+FIN4,Stored Data Manipulation
+FIN5,Redundant Access
+FIN5,File Deletion
+FIN5,Remote System Discovery
+FIN5,Indicator Removal on Host
+FIN5,Valid Accounts
+FIN5,Credential Dumping
+FIN5,Data Staged
+FIN5,Scripting
+FIN5,External Remote Services
+FIN5,Automated Collection
+FIN6,Account Discovery
+FIN6,Remote System Discovery
+FIN6,Scheduled Task
+FIN6,Data Encrypted
+FIN6,Remote Desktop Protocol
+FIN6,Automated Collection
+FIN6,Data Compressed
+FIN6,Exploitation for Privilege Escalation
+FIN6,PowerShell
+FIN6,Network Service Scanning
+FIN6,Scripting
+FIN6,Registry Run Keys / Startup Folder
+FIN6,Data Staged
+FIN6,Valid Accounts
+FIN6,Credential Dumping
+FIN6,Standard Application Layer Protocol
+FIN6,Standard Cryptographic Protocol
+FIN6,Masquerading
+FIN6,Web Service
+FIN6,Permission Groups Discovery
+FIN6,Service Execution
+FIN6,Code Signing
+FIN6,Windows Management Instrumentation
+FIN6,Spearphishing via Service
+FIN7,Video Capture
+FIN7,Code Signing
+FIN7,Masquerading
+FIN7,Shortcut Modification
+FIN7,Application Shimming
+FIN7,User Execution
+FIN7,PowerShell
+FIN7,Standard Application Layer Protocol
+FIN7,Dynamic Data Exchange
+FIN7,Mshta
+FIN7,Command-Line Interface
+FIN7,Web Service
+FIN7,Spearphishing Attachment
+FIN7,New Service
+FIN7,Remote File Copy
+FIN7,Commonly Used Port
+FIN7,Scheduled Task
+FIN7,Scripting
+FIN7,Obfuscated Files or Information
+FIN7,Screen Capture
+FIN7,Registry Run Keys / Startup Folder
+FIN7,Virtualization/Sandbox Evasion
+FIN8,Obfuscated Files or Information
+FIN8,Spearphishing Attachment
+FIN8,Commonly Used Port
+FIN8,Valid Accounts
+FIN8,Data Compressed
+FIN8,Remote File Copy
+FIN8,User Execution
+FIN8,Scripting
+FIN8,Remote Desktop Protocol
+FIN8,Command-Line Interface
+FIN8,File Deletion
+FIN8,Indicator Removal on Host
+FIN8,Windows Management Instrumentation
+FIN8,Credential Dumping
+FIN8,Remote System Discovery
+FIN8,Exfiltration Over Alternative Protocol
+FIN8,Scheduled Task
+FIN8,Standard Cryptographic Protocol
+FIN8,Windows Admin Shares
+FIN8,Exploitation for Privilege Escalation
+FIN8,PowerShell
+FIN8,Data Staged
+FIN8,Security Software Discovery
+FIN8,Modify Registry
+FIN8,Spearphishing Link
+GCMAN,Remote Services
+Gallmaker,Spearphishing Attachment
+Gallmaker,User Execution
+Gallmaker,Obfuscated Files or Information
+Gallmaker,Scripting
+Gallmaker,Dynamic Data Exchange
+Gallmaker,PowerShell
+Gallmaker,Data Compressed
+Gamaredon Group,Exfiltration Over Command and Control Channel
+Gamaredon Group,System Information Discovery
+Gamaredon Group,Standard Application Layer Protocol
+Gamaredon Group,Peripheral Device Discovery
+Gamaredon Group,Remote File Copy
+Gamaredon Group,System Owner/User Discovery
+Gamaredon Group,Data from Removable Media
+Gamaredon Group,Scripting
+Gorgon Group,Spearphishing Attachment
+Gorgon Group,Disabling Security Tools
+Gorgon Group,Process Injection
+Gorgon Group,Shortcut Modification
+Gorgon Group,Command-Line Interface
+Gorgon Group,Execution through API
+Gorgon Group,Remote File Copy
+Gorgon Group,Uncommonly Used Port
+Gorgon Group,User Execution
+Gorgon Group,Deobfuscate/Decode Files or Information
+Gorgon Group,Process Hollowing
+Gorgon Group,Registry Run Keys / Startup Folder
+Gorgon Group,PowerShell
+Gorgon Group,Modify Registry
+Gorgon Group,Scripting
+Gorgon Group,Hidden Window
+Group5,Uncommonly Used Port
+Group5,File Deletion
+Group5,Screen Capture
+Group5,Obfuscated Files or Information
+Group5,Input Capture
+Group5,Software Packing
+Honeybee,Bypass User Account Control
+Honeybee,AppCert DLLs
+Honeybee,File Deletion
+Honeybee,Data Compressed
+Honeybee,Process Discovery
+Honeybee,System Information Discovery
+Honeybee,Modify Existing Service
+Honeybee,Data Staged
+Honeybee,File and Directory Discovery
+Honeybee,Deobfuscate/Decode Files or Information
+Honeybee,Data Encrypted
+Honeybee,Scripting
+Honeybee,Obfuscated Files or Information
+Honeybee,Registry Run Keys / Startup Folder
+Honeybee,Modify Registry
+Honeybee,Process Injection
+Honeybee,Data from Local System
+Honeybee,Code Signing
+Honeybee,Service Execution
+Honeybee,Standard Application Layer Protocol
+Honeybee,Automated Exfiltration
+Honeybee,Command-Line Interface
+Ke3chang,Data from Local System
+Ke3chang,System Service Discovery
+Ke3chang,Data Encrypted
+Ke3chang,System Information Discovery
+Ke3chang,Permission Groups Discovery
+Ke3chang,Account Discovery
+Ke3chang,Email Collection
+Ke3chang,Remote System Discovery
+Ke3chang,System Network Configuration Discovery
+Ke3chang,Credential Dumping
+Ke3chang,Command-Line Interface
+Ke3chang,Pass the Ticket
+Ke3chang,Windows Admin Shares
+Ke3chang,File and Directory Discovery
+Ke3chang,New Service
+Ke3chang,External Remote Services
+Ke3chang,Data from Information Repositories
+Ke3chang,Registry Run Keys / Startup Folder
+Ke3chang,Process Discovery
+Ke3chang,Exfiltration Over Command and Control Channel
+Ke3chang,System Network Connections Discovery
+Ke3chang,Scripting
+Ke3chang,Standard Application Layer Protocol
+Ke3chang,Input Capture
+Ke3chang,Data Compressed
+Ke3chang,Service Execution
+Ke3chang,Masquerading
+Kimsuky,Spearphishing Attachment
+Kimsuky,Change Default File Association
+Kimsuky,Mshta
+Kimsuky,Input Capture
+Kimsuky,Remote Access Tools
+Kimsuky,Browser Extensions
+Kimsuky,Data from Local System
+Kimsuky,Credentials in Files
+Kimsuky,PowerShell
+Kimsuky,File and Directory Discovery
+Kimsuky,File Deletion
+Kimsuky,Registry Run Keys / Startup Folder
+Kimsuky,Data Encrypted
+Kimsuky,Process Injection
+Kimsuky,Disabling Security Tools
+Kimsuky,System Information Discovery
+Kimsuky,New Service
+Kimsuky,Exfiltration Over Command and Control Channel
+Kimsuky,Spearphishing Link
+Lazarus Group,Access Token Manipulation
+Lazarus Group,Account Manipulation
+Lazarus Group,Drive-by Compromise
+Lazarus Group,Hidden Files and Directories
+Lazarus Group,Process Injection
+Lazarus Group,Compiled HTML File
+Lazarus Group,Scripting
+Lazarus Group,Bootkit
+Lazarus Group,Remote Desktop Protocol
+Lazarus Group,File Deletion
+Lazarus Group,Registry Run Keys / Startup Folder
+Lazarus Group,Spearphishing Attachment
+Lazarus Group,Data Staged
+Lazarus Group,Data Encoding
+Lazarus Group,Input Capture
+Lazarus Group,Commonly Used Port
+Lazarus Group,Exfiltration Over Command and Control Channel
+Lazarus Group,Obfuscated Files or Information
+Lazarus Group,File and Directory Discovery
+Lazarus Group,System Owner/User Discovery
+Lazarus Group,Disabling Security Tools
+Lazarus Group,Timestomp
+Lazarus Group,Standard Application Layer Protocol
+Lazarus Group,System Time Discovery
+Lazarus Group,Data from Local System
+Lazarus Group,Shortcut Modification
+Lazarus Group,Application Window Discovery
+Lazarus Group,Custom Cryptographic Protocol
+Lazarus Group,Credential Dumping
+Lazarus Group,Exploitation for Client Execution
+Lazarus Group,System Network Configuration Discovery
+Lazarus Group,New Service
+Lazarus Group,Query Registry
+Lazarus Group,Windows Management Instrumentation
+Lazarus Group,Process Discovery
+Lazarus Group,Remote File Copy
+Lazarus Group,Data Encrypted
+Lazarus Group,Connection Proxy
+Lazarus Group,Windows Admin Shares
+Lazarus Group,Fallback Channels
+Lazarus Group,Brute Force
+Lazarus Group,User Execution
+Lazarus Group,Uncommonly Used Port
+Lazarus Group,Multiband Communication
+Lazarus Group,Data Compressed
+Lazarus Group,Standard Cryptographic Protocol
+Lazarus Group,System Information Discovery
+Lazarus Group,Command-Line Interface
+Lazarus Group,Exfiltration Over Alternative Protocol
+Lazarus Group,Service Stop
+Lazarus Group,Disk Structure Wipe
+Lazarus Group,Disk Content Wipe
+Lazarus Group,Data Destruction
+Lazarus Group,Resource Hijacking
+Lazarus Group,System Shutdown/Reboot
+Leafminer,Network Service Scanning
+Leafminer,Brute Force
+Leafminer,Credential Dumping
+Leafminer,Create Account
+Leafminer,File and Directory Discovery
+Leafminer,Drive-by Compromise
+Leafminer,Obfuscated Files or Information
+Leafminer,Redundant Access
+Leafminer,Email Collection
+Leafminer,Scripting
+Leafminer,Remote System Discovery
+Leviathan,Command-Line Interface
+Leviathan,BITS Jobs
+Leviathan,Regsvr32
+Leviathan,Scripting
+Leviathan,Deobfuscate/Decode Files or Information
+Leviathan,Exploitation for Client Execution
+Leviathan,Obfuscated Files or Information
+Leviathan,Data Staged
+Leviathan,PowerShell
+Leviathan,Valid Accounts
+Leviathan,Registry Run Keys / Startup Folder
+Leviathan,Remote File Copy
+Leviathan,Windows Management Instrumentation
+Leviathan,Shortcut Modification
+Leviathan,Web Service
+Leviathan,Windows Management Instrumentation Event Subscription
+Leviathan,Spearphishing Attachment
+Leviathan,Spearphishing Link
+Leviathan,Binary Padding
+Leviathan,User Execution
+Leviathan,Code Signing
+Leviathan,Remote Services
+Leviathan,Credential Dumping
+Leviathan,Remote Desktop Protocol
+Leviathan,Web Shell
+Magic Hound,Commonly Used Port
+Magic Hound,File and Directory Discovery
+Magic Hound,Remote File Copy
+Magic Hound,Scripting
+Magic Hound,Email Collection
+Magic Hound,Command-Line Interface
+Magic Hound,System Owner/User Discovery
+Magic Hound,System Network Configuration Discovery
+Magic Hound,Obfuscated Files or Information
+Magic Hound,Spearphishing Attachment
+Magic Hound,System Information Discovery
+Magic Hound,Uncommonly Used Port
+Magic Hound,Data Compressed
+Magic Hound,Spearphishing via Service
+Magic Hound,Registry Run Keys / Startup Folder
+Magic Hound,PowerShell
+Magic Hound,File Deletion
+Magic Hound,User Execution
+Magic Hound,Process Discovery
+Magic Hound,Spearphishing Link
+Magic Hound,Web Service
+Magic Hound,Standard Application Layer Protocol
+Magic Hound,Input Capture
+Magic Hound,Credential Dumping
+Magic Hound,Screen Capture
+Magic Hound,Hidden Window
+Magic Hound,Account Manipulation
+Molerats,Credential Dumping
+Molerats,Process Discovery
+Molerats,Code Signing
+MuddyWater,Masquerading
+MuddyWater,Registry Run Keys / Startup Folder
+MuddyWater,Spearphishing Attachment
+MuddyWater,Scripting
+MuddyWater,Credential Dumping
+MuddyWater,System Owner/User Discovery
+MuddyWater,Windows Management Instrumentation
+MuddyWater,Screen Capture
+MuddyWater,Bypass User Account Control
+MuddyWater,Deobfuscate/Decode Files or Information
+MuddyWater,Obfuscated Files or Information
+MuddyWater,Rundll32
+MuddyWater,CMSTP
+MuddyWater,User Execution
+MuddyWater,Dynamic Data Exchange
+MuddyWater,Security Software Discovery
+MuddyWater,Command-Line Interface
+MuddyWater,Remote File Copy
+MuddyWater,Connection Proxy
+MuddyWater,Process Discovery
+MuddyWater,Data Compressed
+MuddyWater,Credentials in Files
+MuddyWater,Component Object Model and Distributed COM
+MuddyWater,Mshta
+MuddyWater,System Information Discovery
+MuddyWater,PowerShell
+MuddyWater,File and Directory Discovery
+MuddyWater,System Network Configuration Discovery
+MuddyWater,Compile After Delivery
+MuddyWater,Multi-Stage Channels
+MuddyWater,Credentials from Web Browsers
+Naikon,System Network Configuration Discovery
+Naikon,Security Software Discovery
+Night Dragon,Credential Dumping
+Night Dragon,Exploit Public-Facing Application
+Night Dragon,Disabling Security Tools
+Night Dragon,Spearphishing Link
+Night Dragon,Standard Application Layer Protocol
+Night Dragon,Valid Accounts
+Night Dragon,Commonly Used Port
+Night Dragon,Obfuscated Files or Information
+Night Dragon,Pass the Hash
+Night Dragon,Remote Access Tools
+Night Dragon,User Execution
+Night Dragon,External Remote Services
+Night Dragon,Software Packing
+Night Dragon,Data Staged
+OilRig,Process Discovery
+OilRig,Deobfuscate/Decode Files or Information
+OilRig,Custom Command and Control Protocol
+OilRig,Automated Collection
+OilRig,File Deletion
+OilRig,Redundant Access
+OilRig,Screen Capture
+OilRig,Remote Services
+OilRig,Permission Groups Discovery
+OilRig,Network Service Scanning
+OilRig,Scripting
+OilRig,External Remote Services
+OilRig,Remote Desktop Protocol
+OilRig,Windows Management Instrumentation
+OilRig,Scheduled Task
+OilRig,System Network Connections Discovery
+OilRig,System Service Discovery
+OilRig,System Network Configuration Discovery
+OilRig,Query Registry
+OilRig,Input Capture
+OilRig,Command-Line Interface
+OilRig,System Information Discovery
+OilRig,Account Discovery
+OilRig,Brute Force
+OilRig,Exfiltration Over Alternative Protocol
+OilRig,Spearphishing Attachment
+OilRig,User Execution
+OilRig,Obfuscated Files or Information
+OilRig,PowerShell
+OilRig,Standard Application Layer Protocol
+OilRig,Web Shell
+OilRig,Indicator Removal from Tools
+OilRig,System Owner/User Discovery
+OilRig,Credential Dumping
+OilRig,Spearphishing Link
+OilRig,Fallback Channels
+OilRig,Password Policy Discovery
+OilRig,Compiled HTML File
+OilRig,Valid Accounts
+OilRig,Remote File Copy
+OilRig,Standard Cryptographic Protocol
+OilRig,Credentials in Files
+OilRig,Commonly Used Port
+OilRig,Spearphishing via Service
+PLATINUM,Exploitation for Privilege Escalation
+PLATINUM,Standard Non-Application Layer Protocol
+PLATINUM,Custom Command and Control Protocol
+PLATINUM,Credential Dumping
+PLATINUM,Remote File Copy
+PLATINUM,Process Injection
+PLATINUM,Drive-by Compromise
+PLATINUM,Input Capture
+PLATINUM,Spearphishing Attachment
+PLATINUM,User Execution
+PLATINUM,Hooking
+PLATINUM,Masquerading
+Patchwork,File and Directory Discovery
+Patchwork,System Information Discovery
+Patchwork,Process Hollowing
+Patchwork,Dynamic Data Exchange
+Patchwork,Data Encrypted
+Patchwork,Remote File Copy
+Patchwork,Exploitation for Client Execution
+Patchwork,File Deletion
+Patchwork,Security Software Discovery
+Patchwork,Credential Dumping
+Patchwork,Obfuscated Files or Information
+Patchwork,Scheduled Task
+Patchwork,DLL Side-Loading
+Patchwork,Automated Collection
+Patchwork,Registry Run Keys / Startup Folder
+Patchwork,Binary Padding
+Patchwork,Drive-by Compromise
+Patchwork,Bypass User Account Control
+Patchwork,PowerShell
+Patchwork,Indicator Removal from Tools
+Patchwork,Software Packing
+Patchwork,Spearphishing Attachment
+Patchwork,Data Staged
+Patchwork,System Owner/User Discovery
+Patchwork,User Execution
+Patchwork,Data Encoding
+Patchwork,Spearphishing Link
+Patchwork,Modify Registry
+Patchwork,Masquerading
+Patchwork,Data from Local System
+Patchwork,Scripting
+Patchwork,Remote Desktop Protocol
+Patchwork,Web Service
+Patchwork,Command-Line Interface
+PittyTiger,Valid Accounts
+Poseidon Group,System Network Connections Discovery
+Poseidon Group,Masquerading
+Poseidon Group,PowerShell
+Poseidon Group,System Service Discovery
+Poseidon Group,Process Discovery
+Poseidon Group,Credential Dumping
+Poseidon Group,Account Discovery
+Putter Panda,Disabling Security Tools
+Putter Panda,Registry Run Keys / Startup Folder
+Putter Panda,Process Injection
+Putter Panda,Obfuscated Files or Information
+RTM,Web Service
+Rancor,Spearphishing Attachment
+Rancor,Scheduled Task
+Rancor,Remote File Copy
+Rancor,Standard Application Layer Protocol
+Rancor,Command-Line Interface
+Rancor,Scripting
+Rancor,User Execution
+Rancor,Signed Binary Proxy Execution
+Scarlet Mimic,Masquerading
+Silence,Video Capture
+Silence,Screen Capture
+Silence,File Deletion
+Silence,Obfuscated Files or Information
+Silence,Execution through API
+Silence,Compiled HTML File
+Silence,User Execution
+Silence,Command-Line Interface
+Silence,Service Execution
+Silence,Scripting
+Silence,Scheduled Task
+Silence,Spearphishing Attachment
+SilverTerrier,Standard Application Layer Protocol
+Sowbug,Credential Dumping
+Sowbug,File and Directory Discovery
+Sowbug,Input Capture
+Sowbug,Data Compressed
+Sowbug,Network Share Discovery
+Sowbug,Command-Line Interface
+Sowbug,Data from Network Shared Drive
+Sowbug,System Information Discovery
+Sowbug,Masquerading
+Stealth Falcon,Data from Local System
+Stealth Falcon,Scripting
+Stealth Falcon,System Owner/User Discovery
+Stealth Falcon,System Information Discovery
+Stealth Falcon,Exfiltration Over Command and Control Channel
+Stealth Falcon,Standard Application Layer Protocol
+Stealth Falcon,Credential Dumping
+Stealth Falcon,PowerShell
+Stealth Falcon,Standard Cryptographic Protocol
+Stealth Falcon,Windows Management Instrumentation
+Stealth Falcon,Scheduled Task
+Stealth Falcon,Process Discovery
+Stealth Falcon,System Network Configuration Discovery
+Stealth Falcon,Query Registry
+Stolen Pencil,Credential Dumping
+Stolen Pencil,Network Sniffing
+Stolen Pencil,Valid Accounts
+Stolen Pencil,Input Capture
+Stolen Pencil,Remote Desktop Protocol
+Stolen Pencil,Browser Extensions
+Stolen Pencil,Spearphishing Link
+Stolen Pencil,Credentials in Files
+Stolen Pencil,Redundant Access
+Stolen Pencil,Credentials from Web Browsers
+Strider,Connection Proxy
+Strider,Credential Dumping
+Suckfly,Network Service Scanning
+Suckfly,Valid Accounts
+Suckfly,Command-Line Interface
+Suckfly,Credential Dumping
+Suckfly,Code Signing
+TA459,Spearphishing Attachment
+TA459,Exploitation for Client Execution
+TA459,User Execution
+TA459,Scripting
+TA459,PowerShell
+TEMP.Veles,Masquerading
+TEMP.Veles,Credential Dumping
+TEMP.Veles,Image File Execution Options Injection
+TEMP.Veles,Scheduled Task
+TEMP.Veles,Timestomp
+TEMP.Veles,File Deletion
+TEMP.Veles,Data Staged
+TEMP.Veles,Remote Services
+TEMP.Veles,Valid Accounts
+TEMP.Veles,Remote Desktop Protocol
+TEMP.Veles,External Remote Services
+TEMP.Veles,Web Shell
+TEMP.Veles,Uncommonly Used Port
+TEMP.Veles,Commonly Used Port
+TEMP.Veles,PowerShell
+TEMP.Veles,Indicator Removal from Tools
+Taidoor,Standard Cryptographic Protocol
+The White Company,System Time Discovery
+The White Company,Security Software Discovery
+The White Company,File Deletion
+The White Company,Virtualization/Sandbox Evasion
+The White Company,Exploitation for Client Execution
+The White Company,Software Packing
+The White Company,User Execution
+The White Company,Spearphishing Attachment
+Threat Group-3390,Remote System Discovery
+Threat Group-3390,Account Discovery
+Threat Group-3390,Remote File Copy
+Threat Group-3390,Data Encrypted
+Threat Group-3390,Redundant Access
+Threat Group-3390,DLL Search Order Hijacking
+Threat Group-3390,Standard Application Layer Protocol
+Threat Group-3390,PowerShell
+Threat Group-3390,DLL Side-Loading
+Threat Group-3390,Process Injection
+Threat Group-3390,System Network Connections Discovery
+Threat Group-3390,External Remote Services
+Threat Group-3390,Obfuscated Files or Information
+Threat Group-3390,Bypass User Account Control
+Threat Group-3390,Windows Remote Management
+Threat Group-3390,Exploitation for Privilege Escalation
+Threat Group-3390,Data Transfer Size Limits
+Threat Group-3390,Windows Management Instrumentation
+Threat Group-3390,Data Compressed
+Threat Group-3390,File Deletion
+Threat Group-3390,Credential Dumping
+Threat Group-3390,Network Share Connection Removal
+Threat Group-3390,System Network Configuration Discovery
+Threat Group-3390,Commonly Used Port
+Threat Group-3390,Command-Line Interface
+Threat Group-3390,Modify Registry
+Threat Group-3390,Drive-by Compromise
+Threat Group-3390,Valid Accounts
+Threat Group-3390,Data from Local System
+Threat Group-3390,Data Staged
+Threat Group-3390,Input Capture
+Threat Group-3390,Automated Collection
+Threat Group-3390,Disabling Security Tools
+Threat Group-3390,Scheduled Task
+Threat Group-3390,Registry Run Keys / Startup Folder
+Threat Group-3390,Deobfuscate/Decode Files or Information
+Threat Group-3390,Query Registry
+Threat Group-3390,New Service
+Threat Group-3390,Network Service Scanning
+Threat Group-3390,Web Shell
+Threat Group-3390,Exploitation of Remote Services
+Threat Group-3390,Exploitation for Client Execution
+Thrip,Remote Access Tools
+Thrip,PowerShell
+Thrip,Exfiltration Over Alternative Protocol
+Tropic Trooper,Hidden Files and Directories
+Tropic Trooper,Commonly Used Port
+Tropic Trooper,Deobfuscate/Decode Files or Information
+Tropic Trooper,Process Injection
+Tropic Trooper,Process Discovery
+Tropic Trooper,Winlogon Helper DLL
+Tropic Trooper,Exploitation for Client Execution
+Tropic Trooper,Spearphishing Attachment
+Tropic Trooper,Security Software Discovery
+Tropic Trooper,Obfuscated Files or Information
+Tropic Trooper,Standard Cryptographic Protocol
+Tropic Trooper,Template Injection
+Tropic Trooper,DLL Side-Loading
+Tropic Trooper,Network Service Scanning
+Tropic Trooper,Network Share Discovery
+Tropic Trooper,System Information Discovery
+Tropic Trooper,System Owner/User Discovery
+Tropic Trooper,New Service
+Turla,Brute Force
+Turla,Spearphishing Link
+Turla,Query Registry
+Turla,PowerShell
+Turla,System Service Discovery
+Turla,File and Directory Discovery
+Turla,Registry Run Keys / Startup Folder
+Turla,Web Service
+Turla,Process Injection
+Turla,User Execution
+Turla,Remote File Copy
+Turla,Remote System Discovery
+Turla,System Network Configuration Discovery
+Turla,System Information Discovery
+Turla,Winlogon Helper DLL
+Turla,Standard Application Layer Protocol
+Turla,Indicator Removal from Tools
+Turla,Process Discovery
+Turla,System Network Connections Discovery
+Turla,Spearphishing Attachment
+Turla,Windows Admin Shares
+Turla,System Time Discovery
+Turla,PowerShell Profile
+Turla,Modify Registry
+Turla,Obfuscated Files or Information
+Turla,Windows Management Instrumentation Event Subscription
+Turla,Execution through API
+Turla,Disabling Security Tools
+Turla,Deobfuscate/Decode Files or Information
+Turla,Connection Proxy
+Turla,Data from Removable Media
+Turla,Access Token Manipulation
+Turla,Data from Local System
+Turla,Command-Line Interface
+Turla,Credentials in Files
+Turla,Scripting
+Turla,Exfiltration Over Alternative Protocol
+Turla,Data Encrypted
+WIRTE,Standard Application Layer Protocol
+WIRTE,Scripting
+WIRTE,PowerShell
+WIRTE,Remote File Copy
+WIRTE,Regsvr32
+WIRTE,Deobfuscate/Decode Files or Information
+Winnti Group,Rootkit
+Winnti Group,Code Signing
+Winnti Group,Process Discovery
+admin@338,Account Discovery
+admin@338,Permission Groups Discovery
+admin@338,Command-Line Interface
+admin@338,System Information Discovery
+admin@338,Masquerading
+admin@338,File and Directory Discovery
+admin@338,System Network Configuration Discovery
+admin@338,System Network Connections Discovery
+admin@338,System Service Discovery
+admin@338,Exploitation for Client Execution
+admin@338,User Execution
+admin@338,Spearphishing Attachment
+menuPass,Windows Management Instrumentation
+menuPass,Credential Dumping
+menuPass,Valid Accounts
+menuPass,System Network Configuration Discovery
+menuPass,Data from Network Shared Drive
+menuPass,Account Discovery
+menuPass,Obfuscated Files or Information
+menuPass,Scripting
+menuPass,System Network Connections Discovery
+menuPass,User Execution
+menuPass,Connection Proxy
+menuPass,Scheduled Task
+menuPass,Trusted Relationship
+menuPass,Command-Line Interface
+menuPass,DLL Search Order Hijacking
+menuPass,Process Hollowing
+menuPass,Deobfuscate/Decode Files or Information
+menuPass,Spearphishing Attachment
+menuPass,Data Staged
+menuPass,Remote Desktop Protocol
+menuPass,DLL Side-Loading
+menuPass,Remote System Discovery
+menuPass,File Deletion
+menuPass,Remote File Copy
+menuPass,Remote Services
+menuPass,PowerShell
+menuPass,Data Compressed
+menuPass,Network Service Scanning
+menuPass,Masquerading
+menuPass,Data Encrypted
+menuPass,Data from Local System
+menuPass,Input Capture
