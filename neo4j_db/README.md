@@ -1,6 +1,6 @@
 # Neo4j Database
 
-This folder contains the dump of the Neo4j database containing data about APTs, campaigns, vulnerabilities, products, etc.
+This folder contains the dump of the Neo4j database containing data about APTs, campaigns, vulnerabilities, products, etc. as well as the raw data if you want to create your own database.
 
 ## Setting up
 
