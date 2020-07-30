@@ -74,7 +74,7 @@ This CSV file contains the mapping between a CVE and the product,version, and O.
 ## rel_threatactor_identities
 This CSV file contains the mapping between an APT and the sector targeted. Data were manually extracted from [***Thai Cert Threat Encyclopedia***](https://www.thaicert.or.th/downloads/files/A_Threat_Actor_Encyclopedia.pdf).
 - **name** contains the name of the APT as in [***ThreatActors***](#ThreatActors).
-- **target** contains the name of the sector as in [***Identity***](#Identity).
+- **target** contains the name of the sector as in [***Identities***](#Identities).
 
 ## rel_threatactor_malware
 This CSV file contains the mapping between an APT and the malware employed. Data were automatically collected using the [***pyattck***](https://github.com/swimlane/pyattck).
