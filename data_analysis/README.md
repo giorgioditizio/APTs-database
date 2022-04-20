@@ -58,25 +58,33 @@ This CSV contains the release date of the version for the software product *Adob
 - ***product*** contains the name of the product, in this case *Air*.
 - ***version*** contains the version number.
 - ***update*** contains the update, * if not present.
-- ***release_date*** contains the release date of the software version in the format (YYYY-MM)
+- ***release_date*** contains the release date of the software version in the format (YYYY-MM).
 
 ## jre_versions
 This CSV contains the release date of the version for the software product *Java JRE*.
 - ***product*** contains the name of the product, in this case *JRE*.
 - ***version*** contains the version number.
 - ***update*** contains the update, * if not present.
-- ***release_date*** contains the release date of the software version in the format (YYYY-MM)
+- ***release_date*** contains the release date of the software version in the format (YYYY-MM).
 
 ## reader_versions
 This CSV contains the release date of the version for the software product *Acrobat Reader*.
 - ***product*** contains the name of the product, in this case *acrobat_reader*.
 - ***version*** contains the version number.
 - ***update*** contains the update, * if not present.
-- ***release_date*** contains the release date of the software version in the format (YYYY-MM)
+- ***release_date*** contains the release date of the software version in the format (YYYY-MM).
 
 ## flash_versions
 This CSV contains the release date of the version for the software product *Adobe Flash Player*.
 - ***product*** contains the name of the product, in this case *flash_player*.
 - ***version*** contains the version number.
 - ***update*** contains the update, * if not present.
-- ***release_date*** contains the release date of the software version in the format (YYYY-MM)
+- ***release_date*** contains the release date of the software version in the format (YYYY-MM).
+
+## office2016_versions
+This CSV contains the KB release date for the software product *Office*.
+- ***product*** contains the name of the product, in this case *office*.
+- ***version*** contains the version number, in this case *2016-\**.
+- ***update*** contains the KB update.
+- ***release_date*** contains the release date of the KB version in the format (YYYY-MM).
+- ***details*** contains the CVE that is addressed by the KB version.
