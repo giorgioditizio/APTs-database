@@ -17,7 +17,7 @@ The following CSV files are the raw data utilized for the generation of the Neo4
 
 ## ThreatActors
 This CSV file contains informarmation about the APTs considered in the analysis. Data were manually extracted from [***MITRE Att\&ck***](https://attack.mitre.org/).
-- **label** contains the type of APT. For example, possible values are activist, criminal, crime-syndicate 33 , nation-state, etc.
+- **label** contains the type of APT. For example, possible values are activist, criminal, crime-syndicate, nation-state, etc.
 - **name** contains the name of the threat group as in MITRE Att&ck.
 - **description** contains a short description of the group.
 - **goals** contains the goals of the APT. For example, financial gain, espionage, and sabotage.
