@@ -1,14 +1,21 @@
 # Neo4j Database
 
-This folder contains the dump of the Neo4j database containing data about APTs, campaigns, vulnerabilities, products, etc. as well as the raw data if you want to create your own database.
+This folder contains the dump of the Neo4j database containing data about APTs, malware, campaigns, vulnerabilities, products, and versions affected. The folder contains also the raw data if you want to create the DB from scratch.
+
+## External source of data
+- Data related to malware, techniques, and tools is obtained using [pyattck](https://github.com/swimlane/pyattck).
+- Data related to Aliases is obtained from [MISP Threat Actor](https://github.com/MISP/misp-galaxy/blob/main/clusters/threat-actor.json).
+- Data related to affected versions by CVE is obtained from [NVD](https://nvd.nist.gov/)
+
+Please refer to the Neo4j documentation for more information.
 
 ## Setting up
 
-See https://neo4j.com/docs/operations-manual/current/tools/dump-load/ for more details.
-- Load the dump in a database called *graph.db* (default). **IMPO:** the database must be shutdown first: 
+- Load the dump in a database called *graph.db* (default). **IMPO:** the database must be shutdown first.
 ```
 ./bin/neo4j-admin load --from=LOCATION_OF_DUMP_FILE/TI_neo4j.dump --database=graph.db --force
 ```
+See [dump load in Neo4j](https://neo4j.com/docs/operations-manual/current/tools/dump-load/) for more details.
 
 ## Database structure
 
@@ -19,13 +26,13 @@ Each node contains one or more field.
 
 #### APT
 This node represents an APT we considered in the analysis.
-- ***labels*** contains the type of APT. For example, possible values are activist, criminal, crime-syndicate 33 , nation-state, etc.
+- ***labels*** contains the type of APT. For example, possible values are activist, criminal, crime-syndicate, nation-state, etc.
 - ***name*** contains the name of the threat group as in MITRE Att\&ck.
 - ***description*** contains a short description of the group.
 - ***goals*** contains the goals of the APT. For example, financial gain, espionage, and sabotage.
 
 #### Country
-This node represents a country in which an APT is allegedly to have origin/location according to the resources consulted.
+This node represents a country in which an APT is allegedly to have origin according to the resources consulted.
 - ***name*** contains the name of the Country.
 
 #### Alias
@@ -40,12 +47,12 @@ This node represents a sector that is targeted by a certain APT
 This node represents a software vulnerability exploited by an APT.
 - ***name*** contains the CVE associated to the vulnerability.
 - ***baseScore*** contains the CVSS Severity and Metrics Base score of the CVE.
-- ***reservedDate*** contains the date when the CVE has been *reserved* by MITRE (in the format MM-YYYY).
-- ***publishedDate*** contains the date when the CVE has been *puslished* by NVD (in the format MM-YYYY).
+- ***reservedDate*** contains the date when the CVE has been *reserved* by MITRE (in the format YYYY-MM).
+- ***publishedDate*** contains the date when the CVE has been *puslished* by NVD (in the format YYYY-MM).
 
 #### Campaign
 This node represents a campaign carried by a certain APT
-- ***date_start*** contains the date when the campaign was first observed.
+- ***date_start*** contains the date when the campaign was first observed (in the format YYYY-MM).
 
 #### Malware
 This node represent a malicious software employed by a certain APT.
@@ -53,7 +60,7 @@ This node represent a malicious software employed by a certain APT.
 - ***platform*** contains the list of platforms in which the malware can run. For example, *Linux*,*Windows*, *macOS*, etc.
 
 #### Tool
-This node represents a legitimate tool available that is exploited by a threat actor during their campaigns.
+This node represents a legitimate tool available that is known to be used by an APT.
 - ***name*** contains the name of the tool. For example, *Winexe*.
 
 #### Technique
@@ -76,14 +83,14 @@ This node represents a version related to a specific software product for which 
 
 ### Relationships
 The relationships link different nodes types.
-- *APT -uses-> Malware* defines which malware is used by a certain APT.
-- *APT -uses-> Tool* defines which tool is used by a certain APT.
-- *APT -uses-> Technique* defines which technique is used by a certain APT.
-- *APT -origin-> Country* defines the allegedly country of origin of an APT.
-- *APT <-attributed_to- Campaign* defines a campaign allegedly to be attributed to a certain APT.
-- *Campaign -targets-> Vulnerability* defines which software vulnerability is exploited in a specific campaign.
-- *APT -targets-> Identity* defines which sector is targeted by a certain APT.
-- *APT <-alias- Alias* defines a relation between the names associated by companies to a certain APT.
+- *APT -uses-> Malware* defines a link between a malware and an APT.
+- *APT -uses-> Tool* defines a link between a tool and an APT.
+- *APT -uses-> Technique* defines a link between a technique and an APT.
+- *APT -origin-> Country* defines a link between an APT and the allegedly country of origin.
+- *APT <-attributed_to- Campaign* defines a link between an APT and a campaign.
+- *Campaign -targets-> Vulnerability* defines a link between a software vulnerability exploited in a specific campaign.
+- *APT -targets-> Identity* defines a sector targeted by an APT.
+- *APT <-alias- Alias* defines a link between the a different name associated to an APT.
 - *Product -has-> Version* defines which version is associated to a product.
-- *Version -vulnerable_to-> Vulnerability* defines which CVE affects a version of a product.
-- *Campaign -employs-> Technique* defines which technique is used to perform the initial access phase. 
+- *Version -vulnerable_to-> Vulnerability* defines a link between a CVE and a version of a product affected by the CVE.
+- *Campaign -employs-> Technique* defines a link between a technique for *initial access* and a campaign.
