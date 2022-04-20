@@ -2,12 +2,13 @@
 
 This folder contains the dump of the Neo4j database containing data about APTs, malware, campaigns, vulnerabilities, products, and versions affected. The folder contains also the raw data if you want to create the DB from scratch.
 
+Please refer to the Neo4j documentation for more information.
+
 ## External source of data
 - Data related to malware, techniques, and tools is obtained using [pyattck](https://github.com/swimlane/pyattck).
 - Data related to Aliases is obtained from [MISP Threat Actor](https://github.com/MISP/misp-galaxy/blob/main/clusters/threat-actor.json).
 - Data related to affected versions by CVE is obtained from [NVD](https://nvd.nist.gov/)
 
-Please refer to the Neo4j documentation for more information.
 
 ## Setting up
 
