@@ -14,7 +14,7 @@ Please refer to the Neo4j documentation for more information.
 
 - Load the dump in a database called *graph.db* (default). **IMPO:** the database must be shutdown first.
 ```
-./bin/neo4j-admin load --from=LOCATION_OF_DUMP_FILE/TI_neo4j.dump --database=graph.db --force
+./bin/neo4j-admin load --from=LOCATION_OF_DUMP_FILE/APTs_DB.dump --database=graph.db --force
 ```
 See [dump load in Neo4j](https://neo4j.com/docs/operations-manual/current/tools/dump-load/) for more details.
 
