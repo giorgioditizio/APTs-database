@@ -13,7 +13,7 @@ The following CSV files are utilized for the data analysis and simulation:
 This CSV contains information about the campaigns associated of the APTs. 
 It is obtained using the following CYPHER query on the Neo4j DB:
 ```
-CALL apoc.export.csv.query('MATCH (n:APT)<-[:attributed_to]-(c:Campaign)-[:employs]->(t:Technique) OPTIONAL MATCH (c:Campaign)-[:targets]->(v:Vulnerability)<-[:vulnerable_to]-(ver:Version)<-[:has]-(p:Product) RETURN DISTINCT n.name AS APT, id(c) AS campaign, v.name AS vulnerability,t.name AS attack_vector,c.date_start AS exploited_time, v.publishedDate AS published_time, v.reservedDate AS reserved_time, p.name AS product, ver.name AS version, ver.update AS update, ver.os AS os','%scampaigns_vulnerability_vector_product_version_os.csv', {})
+CALL apoc.export.csv.query('MATCH (n:APT)<-[:attributed_to]-(c:Campaign)-[:employs]->(t:Technique) OPTIONAL MATCH (c:Campaign)-[:targets]->(v:Vulnerability)<-[:vulnerable_to]-(ver:Version)<-[:has]-(p:Product) RETURN DISTINCT n.name AS APT, id(c) AS campaign, v.name AS vulnerability,t.name AS attack_vector,c.date_start AS exploited_time, v.publishedDate AS published_time, v.reservedDate AS reserved_time, p.name AS product, ver.name AS version, ver.update AS update, ver.os AS os','campaigns_vulnerability_vector_product_version_os.csv', {})
 ```
 The CSV file contains the following entries:
 - ***APT*** contains the name of the APT (based on MITRE Att\&ck)
