@@ -1,4 +1,8 @@
-# CSV files
+# Data analysis
+
+## Scripts and Data
+
+The folder *scripts* contains the scripts utilized for the analysis of the APT campaigns and the effectiveness of the update strategies.
 
 The following CSV files are utilized for the data analysis and simulation:
 - [***campaigns_vulnerability_vector_product_version_os***](#campaigns_vulnerability_vector_product_version_os)
