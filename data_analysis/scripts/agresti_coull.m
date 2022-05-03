@@ -1,7 +1,6 @@
 function [outputArg1,outputArg2] = agresti_coull(n_success,n_trials)
 digits(10)
-%Agresti-Coull CI for 95% -> in R there's a function that does the job for
-%you --> add4ci
+%Agresti-Coull CI for 95%
 p_mean = n_success/n_trials;
 
 a = (1+4/n_trials);
