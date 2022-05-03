@@ -1,4 +1,5 @@
 function [cs,index] = sort_nat(c,mode)
+%Douglas Schwarz (2022). sort_nat: Natural Order Sort (https://www.mathworks.com/matlabcentral/fileexchange/10959-sort_nat-natural-order-sort), MATLAB Central File Exchange.
 %sort_nat: Natural order sort of cell array of strings.
 % usage:  [S,INDEX] = sort_nat(C)
 %
