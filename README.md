@@ -1,4 +1,6 @@
 # Software Updates Strategies: a Quantitative Evaluation against Advanced Persistent Threats
+A manually curated Neo4j database of APTs campaigns spanning from 2008 to 2020 and the related targeted software products.
+
 This repository contains scripts and data to complement the paper "Software Updates Strategies: a Quantitative Evaluation against Advanced Persistent Threats".
 
 ## neo4j_db
