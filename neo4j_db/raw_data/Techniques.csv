@@ -1,0 +1,171 @@
+name,tactic,platforms,permissions,bypass,effective_permissions,network,remote
+Credential Dumping,credential-access,"['Windows', 'Linux', 'macOS']","['Administrator', 'SYSTEM', 'root']",None,None,None,None
+Command-Line Interface,execution,"['Linux', 'macOS', 'Windows']","['User', 'Administrator', 'SYSTEM']",None,None,None,False
+Remote Desktop Protocol,lateral-movement,['Windows'],"['Remote Desktop Users', 'User']",None,None,None,None
+Data from Local System,collection,"['Linux', 'macOS', 'Windows', 'GCP', 'AWS', 'Azure']",None,None,None,None,None
+Data Compressed,exfiltration,"['Linux', 'Windows', 'macOS']",None,None,None,False,None
+Scripting,execution,"['Linux', 'macOS', 'Windows']",['User'],"['Process whitelisting', 'Data Execution Prevention',  'Exploit Prevention']",None,None,None
+Process Discovery,discovery,"['Linux', 'macOS', 'Windows']","['User', 'Administrator', 'SYSTEM']",None,None,None,None
+Email Collection,collection,"['Windows', 'Office 365']",['User'],None,None,None,None
+Masquerading,defense-evasion,"['Linux', 'macOS', 'Windows']",None,['Whitelisting by file name or path'],None,None,None
+System Network Connections Discovery,discovery,"['Linux', 'macOS', 'Windows', 'AWS', 'GCP', 'Azure']","['User', 'Administrator']",None,None,None,None
+Account Discovery,discovery,"['Linux', 'macOS', 'Windows', 'Office 365', 'Azure AD']",['User'],None,None,None,None
+Automated Collection,collection,"['Linux', 'macOS', 'Windows']",['User'],None,None,None,None
+Pass the Hash,lateral-movement,['Windows'],None,None,None,None,None
+Network Share Discovery,discovery,"['macOS', 'Windows', 'AWS', 'GCP', 'Azure']",['User'],None,None,None,None
+System Service Discovery,discovery,['Windows'],"['User', 'Administrator', 'SYSTEM']",None,None,None,None
+System Network Configuration Discovery,discovery,"['Linux', 'macOS', 'Windows']",['User'],None,None,None,None
+Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown
+User Execution,execution,"['Linux', 'Windows', 'macOS']",['User'],None,None,None,None
+Exploitation for Client Execution,execution,"['Linux', 'Windows', 'macOS']",None,None,None,None,True
+Spearphishing Attachment,initial-access,"['Windows', 'macOS', 'Linux']",None,None,None,None,None
+Web Service,defense-evasion,"['Linux', 'macOS', 'Windows']",['User'],"['Binary Analysis', 'Log analysis', 'Firewall']",None,True,None
+External Remote Services,initial-access,['Windows'],['User'],None,None,None,None
+File and Directory Discovery,discovery,"['Linux', 'macOS', 'Windows']","['User', 'Administrator', 'SYSTEM']",None,None,None,None
+Obfuscated Files or Information,defense-evasion,"['Linux', 'macOS', 'Windows']",None,"['Host forensic analysis', 'Signature-based detection', 'Host intrusion prevention systems', ‘Application whitelisting', 'Process whitelisting', 'Log analysis', 'Whitelisting by file name or path']",None,None,None
+Standard Application Layer Protocol,command-and-control,"['Linux', 'macOS', 'Windows']",None,None,None,True,None
+Valid Accounts,initial-access,"['Linux', 'macOS', 'Windows', 'AWS', 'GCP', 'Azure', 'SaaS', 'Office 365']","['User', 'Administrator']","['Firewall', 'Host intrusion prevention systems', 'Network intrusion detection system', 'Process whitelisting', 'System access controls', 'Anti-virus']","['User', 'Administrator'] ",None,None
+Commonly Used Port,command-and-control,"['Linux', 'macOS', 'Windows']",None,None,None,True,None
+Registry Run Keys / Startup Folder,persistence,['Windows'],"['User', 'Administrator']",None,None,None,None
+Remote File Copy,lateral-movement,"['Linux', 'macOS', 'Windows']",['User'],None,None,True,None
+Scheduled Task,privilege-escalation,['Windows'],"['Administrator', 'SYSTEM', 'User']",None,"['SYSTEM', 'Administrator', 'User']",None,True
+File Deletion,defense-evasion,"['Linux', 'macOS', 'Windows']",['User'],['Host forensic analysis'],None,None,None
+System Information Discovery,discovery,"['Linux', 'macOS', 'Windows', 'AWS', 'GCP', 'Azure']",['User'],None,None,None,None
+Data Encoding,command-and-control,"['Linux', 'macOS', 'Windows']",['User'],None,None,True,None
+Regsvr32,execution,['Windows'],"['User', 'Administrator']","['Process whitelisting', 'Anti-virus', 'Digital Certificate Validation']",None,None,False
+Rundll32,execution,['Windows'],['User'],"['Anti-virus', 'Application whitelisting', 'Digital Certificate Validation']",None,None,False
+System Owner/User Discovery,discovery,"['Linux', 'macOS', 'Windows']","['User', 'Administrator']",None,None,None,None
+DLL Side-Loading,defense-evasion,['Windows'],None,"['Process whitelisting', 'Anti-virus']",None,None,None
+Modify Registry,defense-evasion,['Windows'],"['User', 'Administrator', 'SYSTEM']",['Host forensic analysis'],None,None,None
+PowerShell,execution,['Windows'],"['User', 'Administrator']",None,None,None,True
+Drive-by Compromise,initial-access,"['Windows', 'Linux', 'macOS', 'SaaS']",['User'],None,None,None,None
+Modify Existing Service,persistence,['Windows'],"['Administrator', 'SYSTEM']",None,None,None,None
+Deobfuscate/Decode Files or Information,defense-evasion,['Windows'],['User'],"['Anti-virus', 'Host intrusion prevention systems', 'Signature-based detection', 'Network intrusion detection system']",None,None,None
+Hidden Window,defense-evasion,"['macOS', 'Windows']",['User'],None,None,None,None
+Data Obfuscation,command-and-control,"['Linux', 'macOS', 'Windows']",None,None,None,True,None
+Replication Through Removable Media,initial-access,['Windows'],['User'],None,None,None,None
+Dynamic Data Exchange,execution,['Windows'],['User'],None,None,None,False
+Hidden Files and Directories,persistence,"['Linux', 'macOS', 'Windows']",['User'],['Host forensic analysis'],None,None,None
+Timestomp,defense-evasion,"['Linux', 'Windows', 'macOS']","['User', 'Administrator', 'SYSTEM']",['Host forensic analysis'],None,None,None
+Spearphishing Link,initial-access,"['Windows', 'macOS', 'Linux', 'Office 365', 'SaaS']",None,None,None,None,None
+Peripheral Device Discovery,discovery,"['Windows', 'macOS']","['User', 'Administrator', 'SYSTEM']",None,None,None,None
+Screen Capture,collection,"['Linux', 'macOS', 'Windows']",None,None,None,None,None
+Indicator Removal on Host,defense-evasion,"['Linux', 'macOS', 'Windows']",None,"['Log analysis', 'Host intrusion prevention systems', 'Anti-virus']",None,None,None
+Component Object Model Hijacking,persistence,['Windows'],['User'],['Autoruns Analysis'],None,None,None
+Data from Information Repositories,collection,"['Linux', 'Windows', 'macOS', 'SaaS', 'AWS', 'GCP', 'Azure']",['User'],None,None,None,None
+Logon Scripts,persistence,"['macOS', 'Windows']",None,None,None,None,None
+Network Sniffing,discovery,"['Linux', 'macOS', 'Windows']","['Administrator', 'SYSTEM']",None,None,None,None
+Bootkit,persistence,"['Linux', 'Windows']","['Administrator', 'SYSTEM']",None,None,None,None
+Exploitation for Privilege Escalation,privilege-escalation,"['Linux', 'macOS', 'Windows']",['User'],None,['User'],None,None
+Exploitation for Defense Evasion,defense-evasion,"['Linux', 'Windows', 'macOS']",['User'],"['Anti-virus', 'System access controls']",None,None,None
+Access Token Manipulation,privilege-escalation,['Windows'],"['User', 'Administrator']",None,['SYSTEM'],None,None
+Data from Removable Media,collection,"['Linux', 'macOS', 'Windows']",None,None,None,None,None
+Data Staged,collection,"['Linux', 'macOS', 'Windows', 'AWS', 'GCP', 'Azure']",None,None,None,None,None
+Trusted Relationship,initial-access,"['Linux', 'Windows', 'macOS', 'AWS', 'GCP', 'Azure', 'SaaS']",None,None,None,None,None
+Communication Through Removable Media,command-and-control,"['Linux', 'macOS', 'Windows']",None,None,None,False,None
+Rootkit,defense-evasion,"['Linux', 'macOS', 'Windows']","['Administrator', 'SYSTEM', 'root']","['File monitoring', 'Host intrusion prevention systems', 'Process whitelisting', 'Signature-based detection', 'System access controls', 'Whitelisting by file name or path', 'Anti-virus']",None,None,None
+Connection Proxy,defense-evasion,"['Linux', 'macOS', 'Windows']",None,"['Log Analysis', 'Firewall']",None,None,None
+Exploitation of Remote Services,lateral-movement,"['Linux', 'Windows', 'macOS']",['User'],None,None,None,None
+Input Capture,credential-access,"['Linux', 'macOS', 'Windows']","['Administrator', 'SYSTEM']",None,None,None,None
+Office Application Startup,persistence,"['Windows', 'Office 365']","['User', 'Administrator']",None,None,None,None
+Template Injection,defense-evasion,['Windows'],['User'],['Static File Analysis'],None,None,None
+Custom Cryptographic Protocol,command-and-control,"['Linux', 'macOS', 'Windows']",None,None,None,True,None
+Application Access Token,lateral-movement,"['SaaS', 'Office 365']",['User'],"['Multi-Factor Authentication', 'Logon Credentials']",None,None,None
+Steal Application Access Token,credential-access,"['SaaS', 'Office 365', 'Azure AD']",['User'],None,None,None,None
+Accessibility Features,privilege-escalation,['Windows'],['Administrator'],None,['SYSTEM'],None,None
+Bypass User Account Control,privilege-escalation,['Windows'],"['User', 'Administrator']",['Windows User Account Control'],['Administrator'],None,None
+Windows Management Instrumentation Event Subscription,persistence,['Windows'],"['Administrator', 'SYSTEM']",None,None,None,None
+Software Packing,defense-evasion,"['Windows', 'macOS']",None,"['Signature-based detection', 'Anti-virus', 'Heuristic detection']",None,None,None
+Multi-hop Proxy,command-and-control,"['Linux', 'macOS', 'Windows']",None,None,None,None,None
+Windows Management Instrumentation,execution,['Windows'],"['User', 'Administrator']",None,None,None,True
+Pass the Ticket,lateral-movement,['Windows'],None,None,None,None,None
+Domain Fronting,command-and-control,"['Linux', 'macOS', 'Windows']",None,None,None,True,None
+Standard Non-Application Layer Protocol,command-and-control,"['Windows', 'Linux', 'macOS']",None,None,None,True,None
+Shortcut Modification,persistence,['Windows'],"['User', 'Administrator']",None,None,None,None
+Redundant Access,persistence,"['Linux', 'macOS', 'Windows', 'AWS', 'GCP', 'Azure', 'Office 365', 'SaaS', 'Azure AD']","['User', 'Administrator', 'SYSTEM']","['Network intrusion detection system', 'Anti-virus']",None,None,None
+Graphical User Interface,execution,"['Linux', 'macOS', 'Windows']","['User', 'Administrator', 'SYSTEM']",None,None,None,True
+Remote System Discovery,discovery,"['Linux', 'macOS', 'Windows', 'GCP', 'Azure', 'AWS']","['User', 'Administrator', 'SYSTEM']",None,None,None,None
+Uncommonly Used Port,command-and-control,"['Linux', 'macOS', 'Windows']",None,None,None,True,None
+Permission Groups Discovery,discovery,"['Linux', 'macOS', 'Windows', 'Office 365', 'Azure AD']",['User'],None,None,None,None
+New Service,privilege-escalation,['Windows'],"['Administrator', 'SYSTEM']",None,['SYSTEM'],None,None
+Multi-Stage Channels,command-and-control,"['Linux', 'macOS', 'Windows']",None,None,None,True,None
+Exfiltration Over Command and Control Channel,exfiltration,"['Linux', 'macOS', 'Windows']",None,None,None,True,None
+Create Account,persistence,"['Linux', 'macOS', 'Windows', 'AWS', 'GCP', 'Azure AD', 'Azure', 'Office 365']",['Administrator'],None,None,None,None
+Indicator Removal from Tools,defense-evasion,"['Linux', 'macOS', 'Windows']",None,"['Log analysis', 'Host intrusion prevention systems', 'Anti-virus']",None,None,None
+Account Manipulation,persistence,"['Windows', 'Office 365', 'Azure', 'GCP', 'Azure AD', 'AWS']",['Administrator'],None,None,None,None
+Windows Admin Shares,lateral-movement,['Windows'],['Administrator'],None,None,None,None
+Brute Force,credential-access,"['Linux', 'macOS', 'Windows', 'Office 365', 'Azure AD', 'SaaS']",['User'],None,None,None,None
+Credentials in Files,credential-access,"['Linux', 'macOS', 'Windows', 'AWS', 'GCP', 'Azure']","['User', 'Administrator', 'SYSTEM']",None,None,None,None
+Application Deployment Software,lateral-movement,"['Linux', 'macOS', 'Windows']",None,None,None,None,None
+Web Shell,privilege-escalation,"['Linux', 'Windows', 'macOS']",None,None,"['SYSTEM', 'User']",None,None
+NTFS File Attributes,defense-evasion,['Windows'],None,"['Signature-based detection', 'Host forensic analysis', 'Anti-virus']",None,None,None
+Binary Padding,defense-evasion,"['Linux', 'macOS', 'Windows']",None,"['Signature-based detection', 'Anti-virus']",None,None,None
+Signed Script Proxy Execution,execution,['Windows'],['User'],"['Application whitelisting', 'Digital Certificate Validation']",False,None,None
+Mshta,execution,['Windows'],['User'],"['Application whitelisting', 'Digital Certificate Validation']",False,None,None
+Custom Command and Control Protocol,command-and-control,"['Linux', 'macOS', 'Windows']",None,None,None,True,None
+Network Service Scanning,discovery,"['Linux', 'Windows', 'macOS', 'AWS', 'GCP', 'Azure']","['Administrator', 'SYSTEM', 'User']",None,None,None,None
+Data Encrypted,exfiltration,"['Linux', 'macOS', 'Windows']",None,None,None,False,None
+Query Registry,discovery,['Windows'],"['User', 'Administrator', 'SYSTEM']",None,None,None,None
+Service Execution,execution,['Windows'],"['Administrator', 'SYSTEM']",None,None,None,True
+File and Directory Permissions Modification,defense-evasion,"['Linux', 'Windows', 'macOS']","['User', 'Administrator', 'SYSTEM', 'root']",['File system access controls'],None,None,None
+Exfiltration Over Alternative Protocol,exfiltration,"['Linux', 'macOS', 'Windows']",None,None,None,True,None
+Standard Cryptographic Protocol,command-and-control,"['Linux', 'macOS', 'Windows']",None,None,None,True,None
+Execution Guardrails,defense-evasion,"['Linux', 'macOS', 'Windows']",['User'],"['Anti-virus', 'Host forensic analysis', 'Signature-based detection', 'Static File Analysis']",None,None,None
+Audio Capture,collection,"['Linux', 'macOS', 'Windows']",['User'],None,None,None,None
+Execution through API,execution,['Windows'],"['User', 'Administrator', 'SYSTEM']",None,None,None,False
+Process Injection,privilege-escalation,"['Linux', 'macOS', 'Windows']","['User', 'Administrator', 'SYSTEM', 'root']","['Process whitelisting', 'Anti-virus']","['User', 'Administrator', 'SYSTEM', 'root']",None,None
+Disk Structure Wipe,impact,"['Windows', 'macOS', 'Linux']","['Administrator', 'root', 'SYSTEM']",None,None,None,None
+Code Signing,defense-evasion,"['macOS', 'Windows']",None,['Windows User Account Control'],None,None,None
+System Shutdown/Reboot,impact,"['Linux', 'macOS', 'Windows']","['User', 'Administrator', 'root', 'SYSTEM']",None,None,None,None
+Clipboard Data,collection,"['Linux', 'Windows', 'macOS']",None,None,None,None,None
+Runtime Data Manipulation,impact,"['Linux', 'macOS', 'Windows']","['User', 'Administrator', 'root', 'SYSTEM']",None,None,None,None
+Transmitted Data Manipulation,impact,"['Linux', 'macOS', 'Windows']","['User', 'Administrator', 'root', 'SYSTEM']",None,None,None,None
+Stored Data Manipulation,impact,"['Linux', 'macOS', 'Windows']","['User', 'Administrator', 'root', 'SYSTEM']",None,None,None,None
+Data Encrypted for Impact,impact,"['Linux', 'macOS', 'Windows']","['User', 'Administrator', 'root', 'SYSTEM']",None,None,None,None
+Data Destruction,impact,"['Linux', 'macOS', 'Windows']","['User', 'Administrator', 'root', 'SYSTEM']",None,None,None,None
+Remote Services,lateral-movement,"['Linux', 'macOS', 'Windows']",None,None,None,None,None
+Domain Generation Algorithms,command-and-control,"['Linux', 'macOS', 'Windows']",['User'],None,None,None,None
+Supply Chain Compromise,initial-access,"['Linux', 'Windows', 'macOS']",None,None,None,None,None
+Resource Hijacking,impact,"['Linux', 'macOS', 'Windows', 'AWS', 'GCP', 'Azure']","['User', 'Administrator']",None,None,None,None
+Clear Command History,defense-evasion,"['Linux', 'macOS']",['User'],"['Log analysis', 'Host forensic analysis']",None,None,None
+Fallback Channels,command-and-control,"['Linux', 'Windows', 'macOS']",None,None,None,True,None
+Compiled HTML File,execution,['Windows'],['User'],"['Application whitelisting', 'Digital Certificate Validation']",None,None,False
+System Time Discovery,discovery,['Windows'],['User'],None,None,None,None
+Data from Network Shared Drive,collection,"['Linux', 'macOS', 'Windows']",None,None,None,None,None
+Disabling Security Tools,defense-evasion,"['Linux', 'macOS', 'Windows']",None,"['File monitoring', 'Host intrusion prevention systems', 'Signature-based detection', 'Log analysis', 'Anti-virus']",None,None,None
+Remote Access Tools,command-and-control,"['Linux', 'Windows', 'macOS']",['User'],None,None,True,None
+CMSTP,execution,['Windows'],['User'],"['Application whitelisting', 'Anti-virus']",None,None,False
+Security Software Discovery,discovery,"['macOS', 'Windows']","['User', 'Administrator', 'SYSTEM']",None,None,None,None
+XSL Script Processing,execution,['Windows'],['User'],"['Anti-virus', 'Application whitelisting', 'Digital Certificate Validation']",None,None,False
+Signed Binary Proxy Execution,execution,['Windows'],['User'],"['Application whitelisting', 'Digital Certificate Validation']",None,None,False
+Spearphishing via Service,initial-access,"['Windows', 'macOS', 'Linux']",None,None,None,None,None
+Forced Authentication,credential-access,['Windows'],['User'],None,None,None,None
+Taint Shared Content,lateral-movement,['Windows'],['User'],None,None,None,None
+Component Firmware,persistence,['Windows'],['SYSTEM'],"['File monitoring', 'Host intrusion prevention systems', 'Anti-virus']",None,None,None
+Input Prompt,credential-access,"['macOS', 'Windows']",['User'],None,None,None,None
+Video Capture,collection,"['Windows', 'macOS']",['User'],None,None,None,None
+Application Shimming,privilege-escalation,['Windows'],['Administrator'],None,None,None,None
+Virtualization/Sandbox Evasion,discovery,"['Windows', 'macOS']",None,"['Anti-virus', 'Host forensic analysis', 'Signature-based detection', 'Static File Analysis']",None,None,None
+Process Hollowing,defense-evasion,['Windows'],['User'],"['Process whitelisting', 'Whitelisting by file name or path', 'Signature-based detection', 'Anti-virus']",None,None,None
+AppCert DLLs,privilege-escalation,['Windows'],"['Administrator', 'SYSTEM']",None,"['Administrator', 'SYSTEM']",None,None
+Automated Exfiltration,exfiltration,"['Linux', 'macOS', 'Windows']",None,None,None,True,None
+Change Default File Association,persistence,['Windows'],"['User', 'Administrator', 'SYSTEM']",None,None,None,None
+Browser Extensions,persistence,"['Linux', 'macOS', 'Windows']",['User'],None,None,None,None
+Application Window Discovery,discovery,"['macOS', 'Windows']",['User'],None,None,None,None
+Multiband Communication,command-and-control,"['Linux', 'macOS', 'Windows']",None,None,None,True,None
+Service Stop,impact,['Windows'],"['Administrator', 'SYSTEM', 'User']",None,None,None,None
+Disk Content Wipe,impact,"['Linux', 'macOS', 'Windows']","['User', 'Administrator', 'root', 'SYSTEM']",None,None,None,None
+BITS Jobs,persistence,['Windows'],"['User', 'Administrator', 'SYSTEM']","['Firewall', 'Host forensic analysis']",None,None,None
+Component Object Model and Distributed COM,execution,['Windows'],"['Administrator', 'SYSTEM', 'User']",None,None,None,True
+Compile After Delivery,defense-evasion,"['Linux', 'macOS', 'Windows']",['User'],"['Static File Analysis', 'Binary Analysis', 'Anti-virus', 'Host intrusion prevention systems', 'Signature-based detection']",None,None,None
+Credentials from Web Browsers,credential-access,"['Linux', 'macOS', 'Windows']",['User'],None,None,None,None
+Exploit Public-Facing Application,initial-access,"['Linux', 'Windows', 'macOS', 'AWS', 'GCP', 'Azure']",None,None,None,None,None
+Password Policy Discovery,discovery,"['Windows', 'Linux', 'macOS']",['User'],None,None,None,None
+Hooking,credential-access,['Windows'],"['Administrator', 'SYSTEM']",None,None,None,None
+Image File Execution Options Injection,defense-evasion,['Windows'],"['Administrator', 'SYSTEM']",['Autoruns Analysis'],None,None,None
+DLL Search Order Hijacking,defense-evasion,['Windows'],"['User', 'Administrator', 'SYSTEM']",['Process whitelisting'],"['User', 'Administrator', 'SYSTEM']",None,None
+Windows Remote Management,lateral-movement,['Windows'],"['User', 'Administrator']",None,None,None,True
+Data Transfer Size Limits,exfiltration,"['Linux', 'macOS', 'Windows']",None,None,None,True,None
+Network Share Connection Removal,defense-evasion,['Windows'],"['Administrator', 'User']",['Host forensic analysis'],None,None,None
+Winlogon Helper DLL,persistence,['Windows'],"['Administrator', 'SYSTEM']",None,None,None,None
+PowerShell Profile,privilege-escalation,['Windows'],"['User', 'Administrator']",None,None,None,None

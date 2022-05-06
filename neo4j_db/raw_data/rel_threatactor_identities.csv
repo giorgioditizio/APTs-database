@@ -1,0 +1,366 @@
+name,target
+admin@338,defense
+admin@338,financial-services
+admin@338,government-national
+admin@338,media
+admin@338,non-profit
+APT12,defense
+APT12,government-national
+APT12,technology
+APT12,telemedia
+APT12,media
+APT16,financial-services
+APT16,government-national
+APT16,technology
+APT16,media
+APT17,defense
+APT17,government-national
+APT17,technology
+APT17,mining
+APT17,non-profit
+APT18,aerospace
+APT18,technology
+APT18,construction
+APT18,defense
+APT18,education
+APT18,healtcare
+APT18,telemedia
+APT18,transportation
+APT19,defense
+APT19,education
+APT19,energy
+APT19,financial-services
+APT19,government-national
+APT19,technology
+APT19,manufacturing
+APT19,pharmaceuticals
+APT19,telemedia
+APT19,non-profit
+APT28,defense
+APT28,technology
+APT28,government-national
+APT28,media
+APT28,non-profit
+APT29,defense
+APT29,energy
+APT29,government-national
+APT29,media
+APT29,non-profit
+APT29,pharmaceuticals
+APT29,telemedia
+APT29,transportation
+APT3,aerospace
+APT3,construction
+APT3,defense
+APT3,technology
+APT3,manufacturing
+APT3,telemedia
+APT3,transportation
+APT30,defense
+APT30,government-national
+APT32,government-national
+APT32,hospitality
+APT32,manufacturing
+APT32,retail
+APT32,media
+APT33,aerospace
+APT33,defense
+APT33,energy
+APT37,aerospace
+APT37,automotive
+APT37,technology
+APT37,financial-services
+APT37,government-national
+APT37,healthcare
+APT37,manufacturing
+APT38,financial-services
+APT39,aerospace
+APT39,government-national
+APT39,technology
+APT39,telemedia
+APT39,transportation
+Axiom,aerospace
+Axiom,defense
+Axiom,manufacturing
+Axiom,media
+BlackOasis,media
+BlackOasis,non-profit
+BRONZE BUTLER,infrastructure
+BRONZE BUTLER,defense
+BRONZE BUTLER,government-national
+BRONZE BUTLER,technology
+BRONZE BUTLER,manufacturing
+Carbanak,financial-services
+Charming Kitten,defense
+Charming Kitten,government-national
+Cleaver,aerospace
+Cleaver,defense
+Cleaver,education
+Cleaver,energy
+Cleaver,financial-services
+Cleaver,government-national
+Cleaver,healthcare
+Cleaver,technology
+Cleaver,telemedia
+Cleaver,transportation
+Cleaver,utilities
+Cobalt Group,financial-services
+CopyKittens,defense
+CopyKittens,education
+CopyKittens,government-national
+CopyKittens,media
+Dark Caracal,defense
+Dark Caracal,education
+Dark Caracal,financial-services
+Dark Caracal,government-national
+Dark Caracal,healthcare
+Dark Caracal,manufacturing
+Dark Caracal,utilities
+Dark Caracal,non-profit
+Darkhotel,defense
+Darkhotel,energy
+Darkhotel,government-national
+Darkhotel,healthcare
+Darkhotel,non-profit
+Darkhotel,pharmaceuticals
+Darkhotel,technology
+DarkHydrus,education
+DarkHydrus,government-national
+Deep Panda,defense
+Deep Panda,financial-services
+Deep Panda,government-national
+Deep Panda,non-profit
+Dragonfly,construction
+Dragonfly,education
+Dragonfly,energy
+Dragonfly,technology
+Dragonfly,manufacturing
+Dragonfly,pharmaceuticals
+Dragonfly 2.0,energy
+DragonOK,technology
+DragonOK,manufacturing
+Equation,aerospace
+Equation,defense
+Equation,energy
+Equation,government-national
+Equation,media
+Equation,technology
+Equation,telemedia
+Equation,transportation
+FIN10,mining
+FIN10,entertainment
+FIN5,entertainment
+FIN5,hospitality
+FIN6,hospitality
+FIN6,retail
+FIN7,entertainment
+FIN7,construction
+FIN7,education
+FIN7,energy
+FIN7,financial-services
+FIN7,technology
+FIN7,hospitality
+FIN7,retail
+FIN7,telemedia
+FIN7,transportation
+FIN8,hospitality
+FIN8,retail
+Gallmaker,defense
+Gallmaker,government-national
+Gamaredon Group,defense
+Gamaredon Group,government-national
+GCMAN,financial-services
+Gorgon Group,government-national
+Group5,unknown
+Ke3chang,aerospace
+Ke3chang,defense
+Ke3chang,energy
+Ke3chang,government-national
+Ke3chang,technology
+Ke3chang,manufacturing
+Ke3chang,mining
+Ke3chang,utilities
+Lazarus Group,financial-services
+Lazarus Group,government-national
+Lazarus Group,technology
+Leafminer,energy
+Leafminer,financial-services
+Leafminer,government-national
+Leafminer,transportation
+Leviathan,defense
+Leviathan,government-national
+Leviathan,manufacturing
+Leviathan,transportation
+Lotus Blossom,defense
+Lotus Blossom,education
+Lotus Blossom,government-national
+Lotus Blossom,telemedia
+Magic Hound,energy
+Magic Hound,government-national
+Magic Hound,technology
+menuPass,aerospace
+menuPass,defense
+menuPass,government-national
+menuPass,healthcare
+menuPass,pharmaceuticals
+Molerats,aerospace
+Molerats,defense
+Molerats,financial-services
+Molerats,government-national
+Molerats,energy
+Molerats,media
+MuddyWater,defense
+MuddyWater,education
+MuddyWater,entertainment
+MuddyWater,agriculture
+MuddyWater,government-national
+MuddyWater,technology
+MuddyWater,media
+MuddyWater,energy
+MuddyWater,telecommunications
+MuddyWater,transportation
+Naikon,defense
+Naikon,energy
+Naikon,government-national
+Naikon,media
+NEODYMIUM,unknown
+OilRig,energy
+OilRig,financial-services
+OilRig,government-national
+OilRig,telecommunications
+Orangeworm,healthcare
+Orangeworm,manufacturing
+Orangeworm,technology
+Orangeworm,pharmaceuticals
+Patchwork,aerospace
+Patchwork,defense
+Patchwork,energy
+Patchwork,financial-services
+Patchwork,government-national
+Patchwork,technology
+Patchwork,media
+Patchwork,non-profit
+Patchwork,pharmaceuticals
+PLATINUM,defense
+PLATINUM,government-national
+PLATINUM,telecommunications
+Poseidon Group,energy
+Poseidon Group,financial-services
+Poseidon Group,government-national
+Poseidon Group,media
+Poseidon Group,manufacturing
+PROMETHIUM,unknown
+Putter Panda,defense
+Putter Panda,government-national
+Putter Panda,education
+Putter Panda,technology
+Rancor,government-national
+RTM,financial-services
+Sandworm Team,education
+Sandworm Team,energy
+Sandworm Team,government-national
+Sandworm Team,telecommunications
+Scarlet Mimic,non-profit
+SilverTerrier,technology
+SilverTerrier,education
+SilverTerrier,manufacturing
+Sowbug,government-national
+Stealth Falcon,media
+Stealth Falcon,non-profit
+Stolen Pencil,education
+Stolen Pencil,non-profit
+Strider,defense
+Strider,financial-services
+Strider,government-national
+Strider,education
+Strider,telecommunications
+Suckfly,entertainment
+Suckfly,financial-services
+Suckfly,government-national
+Suckfly,healthcare
+Suckfly,media
+TA459,financial-services
+TEMP.Veles,infrastructure
+TEMP.Veles,energy
+TEMP.Veles,manufacturing
+TG-3390,defense
+TG-3390,education
+TG-3390,government-national
+TG-3390,technology
+TG-3390,telecommunications
+TG-3390,non-profit
+Thrip,defense
+Thrip,communications
+Thrip,telecommunications
+Tropic Trooper,defense
+Tropic Trooper,government-national
+Tropic Trooper,healthcare
+Tropic Trooper,technology
+Tropic Trooper,transportation
+Turla,defense
+Turla,education
+Turla,energy
+Turla,government-national
+Turla,technology
+Turla,media
+Turla,non-profit
+Turla,pharmaceuticals
+Turla,education
+Turla,retail
+Winnti Group,entertainment
+Winnti Group,pharmaceuticals
+Winnti Group,telecommunications
+APT1,agriculture
+APT1,media
+APT1,construction
+APT1,education
+APT1,energy
+APT1,entertainment
+APT1,financial-services
+APT1,government-national
+APT1,healthcare
+APT1,manufacturing
+APT1,mining
+APT1,non-profit
+APT1,telecommunications
+APT1,transportation
+APT1,technology
+APT41,media
+APT41,automotive
+APT41,energy
+APT41,entertainment
+APT41,financial-services
+APT41,education
+APT41,healthcare
+APT41,pharmaceuticals
+APT41,transportation
+APT41,telecommunications
+APT41,technology
+Dust Storm,energy
+Elderwood,defense
+Elderwood,education
+Elderwood,energy
+Elderwood,financial-services
+Elderwood,government-national
+FIN4,financial-services
+FIN4,healthcare
+FIN4,pharmaceuticals
+Honeybee,non-profit
+Kimsuky,defense
+Machete,defense
+Machete,government-national
+Machete,telecommunications
+Moafee,defense
+Moafee,government-national
+Night Dragon,energy
+PittyTiger,defense
+PittyTiger,government-national
+PittyTiger,telecommunications
+PittyTiger,technology
+Silence,financial-services
+Taidoor,government-national
+The White Company,government-national
+The White Company,defense
+Threat Group-1314,unknown
+WIRTE,government-national
+WIRTE,defense

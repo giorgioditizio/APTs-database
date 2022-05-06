@@ -1,0 +1,194 @@
+name,tool
+APT1,pwdump
+APT1,Tasklist
+APT1,ipconfig
+APT1,Mimikatz
+APT1,Lslsass
+APT1,gsecdump
+APT1,Net
+APT1,PsExec
+APT1,Pass-The-Hash Toolkit
+APT1,Cachedump
+APT1,xCmd
+APT12,HTRAN
+APT18,cmd
+APT19,Cobalt Strike
+APT19,Empire
+APT28,Mimikatz
+APT28,Responder
+APT28,certutil
+APT28,Winexe
+APT28,Koadic
+APT28,Forfiles
+APT29,meek
+APT29,Tor
+APT29,SDelete
+APT29,Mimikatz
+APT29,PsExec
+APT29,Cobalt Strike
+APT3,schtasks
+APT3,LaZagne
+APT32,Mimikatz
+APT32,Cobalt Strike
+APT32,Net
+APT32,Arp
+APT32,ipconfig
+APT32,netsh
+APT33,Ruler
+APT33,Empire
+APT33,Pupy
+APT33,Net
+APT33,FTP
+APT33,Mimikatz
+APT33,LaZagne
+APT33,PowerSploit
+APT33,PoshC2
+APT38,Net
+APT38,Mimikatz
+APT39,PsExec
+APT39,Mimikatz
+APT39,Windows Credential Editor
+APT41,PowerSploit
+APT41,pwdump
+APT41,Mimikatz
+APT41,netstat
+APT41,Ping
+BRONZE BUTLER,cmd
+BRONZE BUTLER,Windows Credential Editor
+BRONZE BUTLER,gsecdump
+BRONZE BUTLER,Mimikatz
+BRONZE BUTLER,at
+BRONZE BUTLER,Net
+BRONZE BUTLER,schtasks
+Carbanak,Mimikatz
+Carbanak,netsh
+Carbanak,PsExec
+Cobalt Group,PsExec
+Cobalt Group,SDelete
+Cobalt Group,Mimikatz
+Cobalt Group,Cobalt Strike
+CopyKittens,Cobalt Strike
+CopyKittens,Empire
+DarkHydrus,Cobalt Strike
+DarkHydrus,Mimikatz
+Deep Panda,Ping
+Deep Panda,Tasklist
+Deep Panda,Net
+Dragonfly 2.0,Impacket
+Dragonfly 2.0,PsExec
+Dragonfly 2.0,netsh
+Dragonfly 2.0,Net
+Dragonfly 2.0,Reg
+FIN10,Empire
+FIN5,PsExec
+FIN5,pwdump
+FIN5,Windows Credential Editor
+FIN5,SDelete
+FIN6,PsExec
+FIN6,Windows Credential Editor
+FIN6,Cobalt Strike
+FIN6,Mimikatz
+FIN8,dsquery
+FIN8,Net
+Gorgon Group,QuasarRAT
+Gorgon Group,Remcos
+Honeybee,cmd
+Honeybee,Reg
+Honeybee,Systeminfo
+Honeybee,Tasklist
+Ke3chang,Systeminfo
+Ke3chang,Tasklist
+Ke3chang,netstat
+Ke3chang,ipconfig
+Ke3chang,spwebmember
+Ke3chang,Mimikatz
+Ke3chang,Ping
+Ke3chang,Net
+Lazarus Group,Mimikatz
+Lazarus Group,netsh
+Lazarus Group,RawDisk
+Leafminer,PsExec
+Leafminer,Mimikatz
+Leafminer,LaZagne
+Leafminer,MailSniper
+Leviathan,BITSAdmin
+Leviathan,Cobalt Strike
+Leviathan,Windows Credential Editor
+Leviathan,Net
+Leviathan,at
+Magic Hound,sqlmap
+Magic Hound,Mimikatz
+Magic Hound,PsExec
+Magic Hound,Pupy
+Magic Hound,Havij
+MuddyWater,Mimikatz
+MuddyWater,LaZagne
+Naikon,Net
+Naikon,PsExec
+Naikon,Systeminfo
+Naikon,Tasklist
+Naikon,FTP
+Naikon,Ping
+Naikon,netsh
+Night Dragon,gsecdump
+Night Dragon,PsExec
+Night Dragon,at
+OilRig,Mimikatz
+OilRig,netstat
+OilRig,Tasklist
+OilRig,Reg
+OilRig,PsExec
+OilRig,certutil
+OilRig,LaZagne
+OilRig,Systeminfo
+OilRig,ipconfig
+OilRig,Net
+OilRig,FTP
+Patchwork,PowerSploit
+Patchwork,QuasarRAT
+PittyTiger,gsecdump
+PittyTiger,Mimikatz
+Rancor,certutil
+Rancor,Reg
+Silence,Winexe
+Stolen Pencil,Mimikatz
+Stolen Pencil,PsExec
+TEMP.Veles,PsExec
+TEMP.Veles,Mimikatz
+Threat Group-3390,Net
+Threat Group-3390,ipconfig
+Threat Group-3390,Windows Credential Editor
+Threat Group-3390,Mimikatz
+Threat Group-3390,gsecdump
+Threat Group-3390,pwdump
+Threat Group-3390,Impacket
+Thrip,Mimikatz
+Thrip,PsExec
+Tropic Trooper,BITSAdmin
+Turla,Tasklist
+Turla,Reg
+Turla,nbtstat
+Turla,netstat
+Turla,Mimikatz
+Turla,Arp
+Turla,Net
+Turla,Systeminfo
+Turla,Empire
+Turla,PsExec
+Turla,certutil
+WIRTE,Empire
+admin@338,ipconfig
+admin@338,netstat
+admin@338,Net
+admin@338,Systeminfo
+menuPass,Net
+menuPass,PowerSploit
+menuPass,Mimikatz
+menuPass,certutil
+menuPass,pwdump
+menuPass,Ping
+menuPass,cmd
+menuPass,Impacket
+menuPass,PsExec
+menuPass,QuasarRAT
+menuPass,esentutl

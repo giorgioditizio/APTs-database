@@ -1,0 +1,50 @@
+﻿Scarlet Mimic:攻击行动评估
+                - By nEINEI
+
+Time：2016-01-24	
+
+1) Scarlet Mimic该攻击主要针对维吾尔族和西藏活动家以及对其原因感兴趣的人，使用独特的后门程序FakeM。
+
+2) 同时也发现该组织(很大可能就是putter panda，也是叫APT2)针对俄罗斯和印度的政府组织的攻击情况，其目的似乎是负责追踪活动和恐怖活动相关。
+ 
+Symptoms
+ 
+
+相关样本信息：
+	0756357497c2cd7f41ed6a6d4403b395
+	84e5bb2e2a27e1dcb1857459f80ac920
+	18ef043437a8817e94808aee887ade5c
+	3227cc9462ffdc5fa27ae75a62d6d0d9
+	fcecf4dc05d57c8ae356ab6cdaac88c2
+	9c60fadece6ea770e2c1814ac4b3ae74
+	
+
+	
+最小闭合的攻击样本：
+    漏洞文件，2826b38efe609d0abebe83c2588d0825 = 105552  
+    loader :71b7cb770717fb9a38ffe5b132f59ebb size = 23040   
+				
+攻击能力计算： 
+	 
+	K = 2 (正常安全认知范围)
+	a = 3 (无交互)
+	s = 1 (鱼叉式网络钓鱼为主)
+	m = 5 (代码注入，特种木马，范围极广的间谍功能，武器集合，特定目标感染) 
+	p = 3 (攻击3种平台，windows/android/mca)
+	x = 2(使用N day漏洞，CVE-2012-0158，CVE-2010-3333，CVE-2009-3129，CVE-2012-4969);
+	
+
+	攻击能力 = (a+s+m+p)^(k) * (1+x)^ 2 + c  
+	
+	AT = (3 + 1 + 5 + 3) ^ 2 * (1+2) ^ 2 +　(105552+23040)/1024 
+	   = 12^2 * (3^2)+ 125
+	   = 1296+125
+	   = 1421
+
+	  ==> 1421*1000/1279625(1T攻击力单位) = 1.110T
+				
+参考引用：
+1.https://blog.cylance.com/puttering-into-the-future
+2.https://researchcenter.paloaltonetworks.com/2016/01/scarlet-mimic-years-long-espionage-targets-minority-activists/
+3.https://blog.trendmicro.com/trendlabs-security-intelligence/hiding-in-plain-sight-the-fakem-remote-access-trojan/
+4.《论高级威胁的本质及攻击能力的量化研究》- www.vxjump.net/files/aptr/aptr.txt
