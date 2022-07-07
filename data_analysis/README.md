@@ -6,12 +6,18 @@ The folder *scripts* contains the scripts utilized for the analysis of the APT c
 
 The following CSV files are utilized for the data analysis and simulation:
 - [***campaigns_vulnerability_vector_product_version_os***](#campaigns_vulnerability_vector_product_version_os)
-- [***air_versions***](#air_versions)
-- [***jre_versions***](#jre_versions)
-- [***reader_versions***](#reader_versions)
-- [***flash_versions***](#flash_versions)
-- [***office2016_versions***](#office2016_versions)
-
+- [***air_versions_v2***](#air_versions)
+- [***jre_versions_v2***](#jre_versions)
+- [***reader_versions_v2***](#reader_versions)
+- [***flash_versions_v2***](#flash_versions)
+- [***office2016_versions_v2***](#office2016_versions)
+- [***air_advisory.xlsx***](#PRODUCT_advisory)
+- [***jre_advisory.xlsx***](#PRODUCT_advisory)
+- [***reader_advisory.xlsx***](#PRODUCT_advisory)
+- [***flash_advisory.xlsx***](#PRODUCT_advisory)
+- [***jdk_advisory.xlsx***](#PRODUCT_advisory)
+- [***office2016_advisory.xlsx***](#PRODUCT_advisory)
+- [***Vulnerabilities_v2***](#Vulnerabilities)
 
 ## campaigns_vulnerability_vector_product_version_os
 This CSV contains information about the campaigns associated of the APTs. 
@@ -68,3 +74,12 @@ This CSV contains the KB release date for the software product *Office*.
 - ***update*** contains the KB update.
 - ***release_date*** contains the release date of the KB version in the format (YYYY-MM).
 - ***details*** contains the CVE that is addressed by the KB version.
+
+## PRODUCT_advisory
+This XLSX file contains the mapping between the vendor advisories and the NVD CVE.
+- ***product*** contains the name of the product
+- ***advisory*** contains the advisory ID
+- ***cve*** contains the CVE ID
+
+## Vulnerabilities
+This CSV file contains the list of CVEs for the products considered.
