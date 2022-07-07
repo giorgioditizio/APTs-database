@@ -13,28 +13,50 @@ campaigns_vulns_vector_product_version_os.('published_time') = datetime(campaign
 products_paper = ["jre","air","acrobat_reader","flash_player","office"];
 
 folder_versions = '../';
-air_versions_file = 'air_versions.csv';
-reader_versions_file = 'reader_versions.csv';
-jre_versions_file = 'jre_versions.csv';
-flash_versions_file = 'flash_versions.csv';
-office2016_versions_file = 'office2016_versions.csv';
+air_versions_file = 'air_versions_v2.csv';
+reader_versions_file = 'reader_versions_v2.csv';
+jre_versions_file = 'jre_versions_v2.csv';
+flash_versions_file = 'flash_versions_v2.csv';
+office2016_versions_file = 'office2016_versions_v2.csv';
 
-air_versions = readtable(strcat(folder_versions,air_versions_file),'ReadVariableNames',true,'Delimiter',',','Format','%s%s%s%s');
-reader_versions = readtable(strcat(folder_versions,reader_versions_file),'ReadVariableNames',true,'Delimiter',',','Format','%s%s%s%s');
-jre_versions = readtable(strcat(folder_versions,jre_versions_file),'ReadVariableNames',true,'Delimiter',',','Format','%s%s%s%s');
-flash_versions = readtable(strcat(folder_versions,flash_versions_file),'ReadVariableNames',true,'Delimiter',',','Format','%s%s%s%s');
+air_versions = readtable(strcat(folder_versions,air_versions_file),'ReadVariableNames',true,'Delimiter',',','Format','%s%s%s%s%s');
+reader_versions = readtable(strcat(folder_versions,reader_versions_file),'ReadVariableNames',true,'Delimiter',',','Format','%s%s%s%s%s');
+jre_versions = readtable(strcat(folder_versions,jre_versions_file),'ReadVariableNames',true,'Delimiter',',','Format','%s%s%s%s%s');
+flash_versions = readtable(strcat(folder_versions,flash_versions_file),'ReadVariableNames',true,'Delimiter',',','Format','%s%s%s%s%s');
 office2016_versions = readtable(strcat(folder_versions,office2016_versions_file),'ReadVariableNames',true,'Delimiter',',','Format','%s%s%s%s%s');
+
+%mapping vendor advisory to CVE
+air_advisory = 'air_advisory.xlsx';
+flash_advisory = 'flash_advisory.xlsx';
+acrobat_advisory = 'acrobat_advisory.xlsx';
+jdk_advisory = 'jdk_advisory.xlsx';
+office_advisory = 'office2016_advisory.xlsx';
+
+air_advisory_tab = readtable(strcat(folder_versions,air_advisory),'ReadVariableNames',true);
+flash_advisory_tab = readtable(strcat(folder_versions,flash_advisory),'ReadVariableNames',true);
+acrobat_advisory_tab = readtable(strcat(folder_versions,acrobat_advisory),'ReadVariableNames',true);
+jdk_advisory_tab = readtable(strcat(folder_versions,jdk_advisory),'ReadVariableNames',true);
+office_advisory_tab = readtable(strcat(folder_versions,office_advisory),'ReadVariableNames',true);
+office_advisory_tab.('advisory')= cellstr(string(office_advisory_tab.('advisory')));
+
+products_advisories = [air_advisory_tab;flash_advisory_tab;acrobat_advisory_tab;jdk_advisory_tab;office_advisory_tab];
+
+%load all the CVE associated to the products of interest 
+vuln_v2 = 'Vulnerabilities_v2.csv';
+%this contains all CVEs affecting the 5 products of interest
+all_vulns_tab = readtable(strcat(folder_data,vuln_v2),'ReadVariableNames',true);
+all_vulns_tab.('reservedDate') = datetime(all_vulns_tab.('reservedDate'),'InputFormat','yyyy-MM');
+all_vulns_tab.('publishedDate') = datetime(all_vulns_tab.('publishedDate'),'InputFormat','yyyy-MM');
 
 %clean the office2016 file
 office2016_versions = unique(office2016_versions);
 
 %join together all the versions product to iterate over all automatically
 %(for office let's ignore the last column that matches the CVE associated)
-products_versions = [air_versions;reader_versions;jre_versions;flash_versions;office2016_versions(:,1:4)];
-
+products_versions = [air_versions;reader_versions;jre_versions;flash_versions;office2016_versions];
 
 %join together version and update to compare quickly later
-products_versions = table(products_versions.('product'),strcat(products_versions.('version'),'-',products_versions.('update')),products_versions.('release_date'),'VariableNames',{'product','version','release_date'});
+products_versions = table(products_versions.('product'),strcat(products_versions.('version'),'-',products_versions.('update')),products_versions.('release_date'),products_versions.('advisory'),'VariableNames',{'product','version','release_date','advisory'});
 
 %%
 %create a table with compacted info about campaigns of APTs with related
@@ -531,7 +553,7 @@ for p=1:length(products_paper)
     if strcmp(products_paper(p),'office')
         %lets put the first version as the one w/o KB at the date of release of
         %Office 2016
-        product_specific_versions = [{'office',"2016-*",datetime('2015-09-01')};product_specific_versions];
+        product_specific_versions = [{'office',"2016-*",datetime('2015-09-01'),''};product_specific_versions];
         first_vulnerable_and_available = product_specific_versions.('version')(1);
     else
         %search for the first available and vulnerable version BUT that is
@@ -583,6 +605,8 @@ cell_table_strategy_on_the_edge = {};
 cell_table_strategy_autoupdate = {};
 cell_table_strategy_reactive = {};
 cell_table_strategy_informed_reactive = {};
+cell_table_strategy_reactive_on_advisory = {};
+cell_table_strategy_informed_reactive_on_advisory = {};
 
 table_final_results = table();
 
@@ -596,6 +620,8 @@ table_strategy_on_the_edge = [];
 table_strategy_autoupdate = [];
 table_strategy_reactive = [];
 table_strategy_informed_reactive = [];
+table_strategy_reactive_on_advisory = [];
+table_strategy_informed_reactive_on_advisory = [];
 table_exploits = [];
 table_timeline_exploitations = [];
 
@@ -606,6 +632,10 @@ unique_apts = [];
 for p=1:length(products_paper)
     %first get the CVE exploited for the product
     table_versions_campaign_product = table_versions_campaign(strcmp(table_versions_campaign.('product'),products_paper(p)),:);
+
+    %get the advisories and versions for the product
+    products_advisories_product = products_advisories(strcmp(products_advisories.('product'),products_paper(p)),:);
+    products_versions_product = products_versions(strcmp(products_versions.('product'),products_paper(p)),:);
     
     if strcmp(products_paper(p),'office')
         %for office we are currently simulating only office 2016 thus ignore
@@ -631,7 +661,11 @@ for p=1:length(products_paper)
     
     [unique_cves,unique_campaigns,unique_apts] = statistics_simulation(unique_cves,unique_campaigns,unique_apts,table_versions_campaign_product,campaigns_vulns_vector_product_version_windows);
     
-    cves = unique(table_versions_campaign_product.('cve'));
+    %load the CVEs exploited by the APT
+    cves_exploited = unique(table_versions_campaign_product.('cve'));
+    %load all CVEs affecting the products of interest
+    all_cves = unique(all_vulns_tab.('CVE'));
+    
     product_specific_versions = unique(products_versions(strcmp(products_versions.('product'),products_paper(p)),:));
     product_specific_versions.('release_date')=datetime(product_specific_versions.('release_date'),'InputFormat','yyyy-MM');
     %drop version released after the last date of interest
@@ -673,7 +707,7 @@ for p=1:length(products_paper)
     if strcmp(products_paper(p),'office')
     %lets put the first version as the one w/o KB at the date of release of
     %Office 2016
-        product_specific_versions = [{'office',"2016-*",datetime('2015-09-01')};product_specific_versions];
+        product_specific_versions = [{'office',"2016-*",datetime('2015-09-01'),''};product_specific_versions];
     end    
     
     %select the initial version from the pool
@@ -800,16 +834,16 @@ for p=1:length(products_paper)
     
     
     %for each cve get the patch that we must apply
-    for i=1:length(cves)
+    for i=1:length(cves_exploited)
         if strcmp(products_paper(p),'office')
             %here it is different than on the other products. We have a KB that
             %patch the CVE and not the maximum version vulnerable. Thus let's
             %find the KB that patch the CVE and then apply it as the new
             %version to install
             %it is a single one for sure (single publication date for a CVE)
-            dates = unique(string(table_versions_campaign_product.('published_date')(strcmp(table_versions_campaign_product.('cve'),cves(i)))));
+            dates = unique(string(table_versions_campaign_product.('published_date')(strcmp(table_versions_campaign_product.('cve'),cves_exploited(i)))));
             %get KBs for the CVE
-            kb_indexes = find(strcmp(office2016_versions.('details'),cves(i)));
+            kb_indexes = find(strcmp(office2016_versions.('advisory'),cves_exploited(i)));
             %we could have multiple KB, we then take only the most recent
             %one BY RELEASE DATE BECAUSE KB numbering is not linked to more
             %recent!!!!
@@ -827,9 +861,9 @@ for p=1:length(products_paper)
             my_version = kbs(end);
         else
             %it is a single one for sure (single publication date for a CVE)
-            dates = unique(string(table_versions_campaign_product.('published_date')(strcmp(table_versions_campaign_product.('cve'),cves(i)))));
+            dates = unique(string(table_versions_campaign_product.('published_date')(strcmp(table_versions_campaign_product.('cve'),cves_exploited(i)))));
             %get max version affected
-            max_affected = unique(table_versions_campaign_product.('max_version')(strcmp(table_versions_campaign_product.('cve'),cves(i))));
+            max_affected = unique(table_versions_campaign_product.('max_version')(strcmp(table_versions_campaign_product.('cve'),cves_exploited(i))));
             %search the next version not affected from this vuln
             vect_releases = sort_nat(unique([max_affected;product_specific_versions.('version')]));
             tmp_index = find(strcmp(vect_releases,max_affected));
@@ -921,12 +955,12 @@ for p=1:length(products_paper)
     matrix_reactive_mitre(index,:) = matrix_reactive_mitre(index,:) + double(timeline>=product_specific_versions.('release_date')(strcmp(product_specific_versions.('version'),initial_version)));
     
     %for each cve get the max vuln version
-    for i=1:length(cves)
+    for i=1:length(cves_exploited)
         if strcmp(products_paper(p),'office')
             %get reserved date of CVE
-            dates = unique(string(table_versions_campaign_product.('reserved_date')(strcmp(table_versions_campaign_product.('cve'),cves(i)))));
+            dates = unique(string(table_versions_campaign_product.('reserved_date')(strcmp(table_versions_campaign_product.('cve'),cves_exploited(i)))));
             %get KBs for the CVE
-            kb_indexes = find(strcmp(office2016_versions.('details'),cves(i)));
+            kb_indexes = find(strcmp(office2016_versions.('advisory'),cves_exploited(i)));
             %we could have multiple KB, we then take only the most recent
             %one BY RELEASE DATE BECAUSE KB numbering is not linked to more
             %recent!!!!
@@ -947,12 +981,12 @@ for p=1:length(products_paper)
             %exploited between MITRE and NVD we get the reserved or the
             %published date
             %if ismember(cves(i),cves_between_mitre_nvd)
-            dates = unique(string(table_versions_campaign_product.('reserved_date')(strcmp(table_versions_campaign_product.('cve'),cves(i)))));
+            dates = unique(string(table_versions_campaign_product.('reserved_date')(strcmp(table_versions_campaign_product.('cve'),cves_exploited(i)))));
             %else
             %    dates = unique(string(table_versions_campaign_product.('published_date')(strcmp(table_versions_campaign_product.('cve'),cves(i)))));
             %end
             %get max version affected
-            max_affected = unique(table_versions_campaign_product.('max_version')(strcmp(table_versions_campaign_product.('cve'),cves(i))));
+            max_affected = unique(table_versions_campaign_product.('max_version')(strcmp(table_versions_campaign_product.('cve'),cves_exploited(i))));
             %search the next version not affected from this vuln
             vect_releases = sort_nat(unique([max_affected;product_specific_versions.('version')]));
             tmp_index = find(strcmp(vect_releases,max_affected));
@@ -1023,6 +1057,274 @@ for p=1:length(products_paper)
             end
         end
     end
+
+    %##################################
+    %now compute the REACTIVE AND INFORMED REACTIVE BASED ONLY ON THE NVD
+    %PUBLICATION AND THE ADVISORY OF THE VENDOR
+
+    %REACTIVE ON ADVISORY ONLY (no knowledge of exploitation)
+    %thus iterate over all CVEs
+    %order them and get the first one (that is also present in the release), this will be the starting version of
+    %this strategy from the publication
+    matrix_reactive_on_advisory = zeros(size(product_specific_versions,1),length(timeline));
+    %find the right row
+    index = find(strcmp(product_specific_versions.('version'),initial_version));
+    matrix_reactive_on_advisory(index,:) = matrix_reactive_on_advisory(index,:) + double(timeline>=product_specific_versions.('release_date')(strcmp(product_specific_versions.('version'),initial_version)));
+    
+    
+    %for each cve get the patch that we must apply
+    for i=1:length(all_cves)
+        if strcmp(products_paper(p),'office')
+            %here it is different than on the other products. We have a KB that
+            %patch the CVE and not the maximum version vulnerable. Thus let's
+            %find the KB that patch the CVE and then a  pply it as the new
+            %version to install
+            %it is a single one for sure (single publication date for a CVE)
+            dates = unique(string(all_vulns_tab.('publishedDate')(strcmp(all_vulns_tab.('CVE'),all_cves(i)))));
+            %get KBs for the CVE
+            kb_indexes = find(strcmp(office2016_versions.('advisory'),all_cves(i)));
+            %if it is not related to office, skip
+            if isempty(kb_indexes)
+               continue
+            end
+            %we could have multiple KB, we then take only the most recent
+            %one BY RELEASE DATE BECAUSE KB numbering is not linked to more
+            %recent!!!!
+            if length(kb_indexes)>1
+                tmp_kb_indexes = table(kb_indexes,office2016_versions.('release_date')(kb_indexes));
+                kb_index = tmp_kb_indexes{end,1};
+            else
+                kb_index = kb_indexes;
+            end
+            %extract the kb names FROM THE office2016_versions because it
+            %is different from the product_specific_versions file
+            kbs = strcat(office2016_versions.('version')(kb_index),'-',office2016_versions.('update')(kb_index));
+            %now extract only the most recent KBs
+            kbs = sort_nat(kbs);
+            my_version = kbs(end);
+        else
+            %it is a single one for sure (single publication date for a CVE)
+            dates = unique(string(all_vulns_tab.('publishedDate')(strcmp(all_vulns_tab.('CVE'),all_cves(i)))));
+            advisory = unique(products_advisories_product.('advisory')(strcmp(products_advisories_product.('cve'),all_cves(i))));
+            %check if the advisory exist, if not this is a CVE that does
+            %not affect this product
+            if isempty(advisory)
+                %move to the next CVE
+                continue
+            end
+            %could be multiple advisory for the same CVE
+            %keep the most recent one
+            advisory = sort_nat(advisory);
+            advisory = advisory(end);
+            my_version = products_versions_product.('version')(strcmp(products_versions_product.('advisory'),advisory));
+            if isempty(my_version)
+                %move to the next CVE
+                continue
+            end
+            %if the advisory covers more releases, order them and keep the
+            %newest one. in this case we have that increasing number is
+            %more recent advisory 
+            my_version = sort_nat(my_version);
+            %keep the most recent
+            my_version = my_version(end);
+        end
+        %fill with ones from the publication of the CVE+delay on
+        index = find(strcmp(product_specific_versions.('version'),my_version)); 
+        matrix_reactive_on_advisory(index,:) = matrix_reactive_on_advisory(index,:) + double(timeline>=(datetime(dates)+calmonths(avg_patch_90_months)));
+    end
+    
+    %now a certain version we choose could not be available yet.
+    %In this case the patch_time must be considered from the time when the release is available
+    %because it represent the set of actions required to check that the
+    %update does not break anything.
+    %Thus multiply the matrix with the release one. However the release one must be shifted
+    %of the patch time delay we have so that if a version is not
+    %available at the time we decided to update we will have a 0 up to the
+    %point where the release + patch time is available
+    shift_availability_releases = circshift(availability_releases,avg_patch_90_months,2);
+    %again drop the 1s that enter from the left
+    shift_availability_releases(:,1:avg_patch_90_months) = zeros(size(shift_availability_releases,1),avg_patch_90_months);
+    
+    matrix_reactive_on_advisory = matrix_reactive_on_advisory.*shift_availability_releases;
+    %normalize to 1 because here we sum up (before by iterative over the all_cves) thus we could have value > 1
+    matrix_reactive_on_advisory(matrix_reactive_on_advisory>1)=1;
+    
+    %now we need to eliminate the 1s when a newer version is installed. We can
+    %just subtract the n-th row to ALL previous n-1-th rows
+    for i=size(matrix_reactive_on_advisory,1):-1:2
+        matrix_reactive_on_advisory(1:i-1,:) = matrix_reactive_on_advisory(1:i-1,:)-matrix_reactive_on_advisory(i,:);
+        %unfortunately this will subtract also in rows where there is not one
+        %(because we "jump" to the newer version not affected), thus change all
+        %the -1 to 0
+        %here we first need to set to zero every entry that is now negative
+        %otherwise we will do --1 i.e. +1 and we will add them where we
+        %shouldn't
+        matrix_reactive_on_advisory(matrix_reactive_on_advisory==-1)=0;
+    end
+    
+    
+    %in this strategy we need to apply or not the pessimistic scenario
+    
+    %check if we are simulating the optimistic scenario (i.e. if campaign
+    %and patch happen at the same time, the patch is applied first) or the
+    %pessimistic scenario (opposite result)
+    if not(optimistic)
+        %lets assume a worst scenario where the patch is done some time later
+        %in the month so possible exploitation in that month are still able to
+        %reach the older version
+        for i=size(matrix_reactive_on_advisory,1):-1:2
+            %find the first column that has a 1
+            id_column=find(matrix_reactive_on_advisory(i,:)>0,1);
+            %if we found one let's search for the line before it that has a
+            %1
+            if not(isempty(id_column))
+                %goal: put a one to the line that has the 1 before this one
+                %(could not be the previous line) so start the search from
+                %the previous line on
+                for j=i-1:-1:1
+                    tmp=find(matrix_reactive_on_advisory(j,:)>0,1);
+                    if not(isempty(tmp))
+                        %found the first line that has the ones before that
+                        %one. Here we put 1 on this line with the column
+                        %previously found
+                        matrix_reactive_on_advisory(j,id_column)=1;
+                        break
+                    end
+                end
+            end
+        end
+    end    
+    
+    
+    %create the fourth strategy: we patch as soon as an entry for a CVE is reserved in MITRE + a certain delay
+    %INFORMED REACTIVE ON ADVISORY ONLY (no knowledge of exploitation)
+    %thus iterate over all CVEs
+    
+    %order them and get the first one (that is also present in the release), this will be the starting version of
+    %this strategy from the publication
+    matrix_reactive_mitre_on_advisory = zeros(size(product_specific_versions,1),length(timeline));
+    %find the right row
+    index = find(strcmp(product_specific_versions.('version'),initial_version));
+    %let's start when it was officially release the version (for office
+    %2016 too)
+    matrix_reactive_mitre_on_advisory(index,:) = matrix_reactive_mitre_on_advisory(index,:) + double(timeline>=product_specific_versions.('release_date')(strcmp(product_specific_versions.('version'),initial_version)));
+    
+    %for each cve get the max vuln version
+    for i=1:length(all_cves)
+        if strcmp(products_paper(p),'office')
+            %here it is different than on the other products. We have a KB that
+            %patch the CVE and not the maximum version vulnerable. Thus let's
+            %find the KB that patch the CVE and then a  pply it as the new
+            %version to install
+            %it is a single one for sure (single publication date for a CVE)
+            dates = unique(string(all_vulns_tab.('reservedDate')(strcmp(all_vulns_tab.('CVE'),all_cves(i)))));
+            %get KBs for the CVE
+            kb_indexes = find(strcmp(office2016_versions.('advisory'),all_cves(i)));
+            %if it is not related to office, skip
+            if isempty(kb_indexes)
+               continue
+            end
+            %we could have multiple KB, we then take only the most recent
+            %one BY RELEASE DATE BECAUSE KB numbering is not linked to more
+            %recent!!!!
+            if length(kb_indexes)>1
+                tmp_kb_indexes = table(kb_indexes,office2016_versions.('release_date')(kb_indexes));
+                kb_index = tmp_kb_indexes{end,1};
+            else
+                kb_index = kb_indexes;
+            end
+            %extract the kb names FROM THE office2016_versions because it
+            %is different from the product_specific_versions file
+            kbs = strcat(office2016_versions.('version')(kb_index),'-',office2016_versions.('update')(kb_index));
+            %now extract only the most recent KBs
+            kbs = sort_nat(kbs);
+            my_version = kbs(end);
+        else
+            %it is a single one for sure (single publication date for a CVE)
+            dates = unique(string(all_vulns_tab.('reservedDate')(strcmp(all_vulns_tab.('CVE'),all_cves(i)))));
+            advisory = unique(products_advisories_product.('advisory')(strcmp(products_advisories_product.('cve'),all_cves(i))));
+            %check if the advisory exist, if not this is a CVE that does
+            %not affect this product
+            if isempty(advisory)
+                %move to the next CVE
+                continue
+            end
+            %could be multiple advisory for the same CVE
+            %keep the most recent one
+            advisory = sort_nat(advisory);
+            advisory = advisory(end);
+            my_version = products_versions_product.('version')(strcmp(products_versions_product.('advisory'),advisory));
+            if isempty(my_version)
+                %move to the next CVE
+                continue
+            end
+            %if the advisory covers more releases, order them and keep the
+            %newest one
+            my_version = sort_nat(my_version);
+            %keep the most recent
+            my_version = my_version(end);
+        end
+        %fill with ones from the publication of the CVE+delay on
+        index = find(strcmp(product_specific_versions.('version'),my_version)); 
+        matrix_reactive_mitre_on_advisory(index,:) = matrix_reactive_mitre_on_advisory(index,:) + double(timeline>=(datetime(dates)+calmonths(avg_patch_90_months)));
+    end
+    
+    
+    %now a certain version we choose could not be available yet.
+    %In this case the patch_time must be considered from the time when the release is available
+    %because it represent the set of actions required to check that the
+    %update does not break anything.
+    %Thus multiply the matrix with the release one. However the release one must be shifted
+    %of the patch time delay we have so that if a version is not
+    %available at the time we decided to update we will have a 0 up to the
+    %point where the release + patch time is available
+    matrix_reactive_mitre_on_advisory = matrix_reactive_mitre_on_advisory.*shift_availability_releases;
+    %normalize to 1 because here we sum up thus we could have value > 1
+    matrix_reactive_mitre_on_advisory(matrix_reactive_mitre_on_advisory>1)=1;
+    
+    %now we need to eliminate the 1s when a newer version is installed. We can
+    %just subtract the n-th row to ALL previous n-1-th rows
+    for i=size(matrix_reactive_mitre_on_advisory,1):-1:2
+        matrix_reactive_mitre_on_advisory(1:i-1,:) = matrix_reactive_mitre_on_advisory(1:i-1,:)-matrix_reactive_mitre_on_advisory(i,:);
+        %unfortunately this will subtract also in rows where there is not one
+        %(because we "jump" to the newer version not affected), thus change all
+        %the -1 to 0
+        %here we first need to set to zero every entry that is now negative
+        %otherwise we will do --1 i.e. +1 and we will add them where we
+        %shouldn't
+        matrix_reactive_mitre_on_advisory(matrix_reactive_mitre_on_advisory==-1)=0;
+    end
+    
+    %check if we are simulating the optimistic scenario (i.e. if campaign
+    %and patch happen at the same time, the patch is applied first) or the
+    %pessimistic scenario (opposite result)
+    if not(optimistic)
+        %lets assume a worst scenario where the patch is done some time later
+        %in the month so possible exploitation in that month are still able to
+        %reach the older version
+        for i=size(matrix_reactive_mitre_on_advisory,1):-1:2
+            %find the first column that has a 1
+            id_column=find(matrix_reactive_mitre_on_advisory(i,:)>0,1);
+            %if we found one let's search for the line before it that has a
+            %1
+            if not(isempty(id_column))
+                %goal: put a one to the line that has the 1 before this one
+                %(could not be the previous line) so start the search from
+                %the previous line on
+                for j=i-1:-1:1
+                    tmp=find(matrix_reactive_mitre_on_advisory(j,:)>0,1);
+                    if not(isempty(tmp))
+                        %found the first line that has the ones before that
+                        %one. Here we put 1 on this line with the column
+                        %previously found
+                        matrix_reactive_mitre_on_advisory(j,id_column)=1;
+                        break
+                    end
+                end
+            end
+        end
+    end
+
     
     %create table for first strategy
     T = array2table(tmp_table_versions);
@@ -1044,11 +1346,23 @@ for p=1:length(products_paper)
     T_4.Properties.RowNames = strcat(product_specific_versions.('product'),'-',product_specific_versions.('version'));
     table_strategy_informed_reactive = [table_strategy_informed_reactive; T_4];
 
+    %create table for reactive strategy with advisory
+    T_5 = array2table(matrix_reactive_on_advisory);
+    T_5.Properties.RowNames = strcat(product_specific_versions.('product'),'-',product_specific_versions.('version'));
+    table_strategy_reactive_on_advisory = [table_strategy_reactive_on_advisory; T_5];
+
+    %create table for mitre strategy with advisory
+    T_6 = array2table(matrix_reactive_mitre_on_advisory);
+    T_6.Properties.RowNames = strcat(product_specific_versions.('product'),'-',product_specific_versions.('version'));
+    table_strategy_informed_reactive_on_advisory = [table_strategy_informed_reactive_on_advisory; T_6];
+
 end
 cell_table_strategy_on_the_edge{end+1}=table_strategy_on_the_edge;
 cell_table_strategy_autoupdate{end+1}=table_strategy_autoupdate;
 cell_table_strategy_reactive{end+1}=table_strategy_reactive;
 cell_table_strategy_informed_reactive{end+1}=table_strategy_informed_reactive;
+cell_table_strategy_reactive_on_advisory{end+1}=table_strategy_reactive_on_advisory;
+cell_table_strategy_informed_reactive_on_advisory{end+1}=table_strategy_informed_reactive_on_advisory;
 
 %now iterate over the different available table_strategy w/ different
 %initial version
@@ -1062,6 +1376,8 @@ tot_vulns_strategy_on_the_edge = zeros(1,size(timeline,2));
 tot_vulns_strategy_autoupdate = zeros(1,size(timeline,2));
 tot_vulns_strategy_reactive = zeros(1,size(timeline,2));
 tot_vulns_strategy_informed_reactive = zeros(1,size(timeline,2));
+tot_vulns_strategy_reactive_on_advisory = zeros(1,size(timeline,2));
+tot_vulns_strategy_informed_reactive_on_advisory = zeros(1,size(timeline,2));
 
 %compute matrix of exploits affecting specific versions of the product
 %we sum the campaigns one over the other i.e. if an entry is covered by two
@@ -1104,16 +1420,24 @@ counter_vulnerable_strategy_on_the_edge = 0;
 counter_vulnerable_strategy_autoupdate = 0;
 counter_vulnerable_strategy_reactive = 0;
 counter_vulnerable_strategy_informed_reactive = 0;
+counter_vulnerable_strategy_reactive_on_advisory = 0;
+counter_vulnerable_strategy_informed_reactive_on_advisory = 0;
+
 set_camp_on_the_edge = [];
 set_camp_autoupdate = [];
 set_camp_reactive = [];
 set_camp_informed_reactive = [];
+set_camp_reactive_on_advisory = [];
+set_camp_informed_reactive_on_advisory = [];
+
 %compute the number of instant of times (months) in which you are
 %compromisable for each strategy for each campaign
 exposure_months_on_the_edge = [];
 exposure_months_autoupdate = [];
 exposure_months_reactive = [];
 exposure_months_informed_reactive = [];
+exposure_months_reactive_on_advisory = [];
+exposure_months_informed_reactive_on_advisory = [];
 
 
 %create a vector that identify in the i-th position a campaign to
@@ -1123,6 +1447,8 @@ vect_campaigns_on_the_edge = [];
 vect_campaigns_autoupdate = [];
 vect_campaigns_reactive = [];
 vect_campaigns_informed_reactive = [];
+vect_campaigns_reactive_on_advisory = [];
+vect_campaigns_informed_reactive_on_advisory = [];
 
 for i=1:length(my_campaigns)
     %now get the list of vulnerable version for the campaign
@@ -1153,7 +1479,7 @@ for i=1:length(my_campaigns)
             continue
           end
           %get KBs for the CVE
-          kb_indexes = find(strcmp(office2016_versions.('details'),my_cves(b)));
+          kb_indexes = find(strcmp(office2016_versions.('advisory'),my_cves(b)));
           %we could have multiple KB, we then take only the most recent
           %one BY RELEASE DATE BECAUSE KB numbering is not linked to more
           %recent!!!!
@@ -1214,6 +1540,8 @@ for i=1:length(my_campaigns)
     vulnerabilities_strategy_autoupdate = table2array(table_strategy_autoupdate).*tmp_matrix_campaign;
     vulnerabilities_strategy_reactive = table2array(table_strategy_reactive).*tmp_matrix_campaign;
     vulnerabilities_strategy_informed_reactive = table2array(table_strategy_informed_reactive).*tmp_matrix_campaign;
+    vulnerabilities_strategy_reactive_on_advisory = table2array(table_strategy_reactive_on_advisory).*tmp_matrix_campaign;
+    vulnerabilities_strategy_informed_reactive_on_advisory = table2array(table_strategy_informed_reactive_on_advisory).*tmp_matrix_campaign;
 
     %now the previous table shows for which versions I am vulnerable, lets sum
     %up the rows (i.e. sum all the values in a columns) to get a single value
@@ -1226,12 +1554,16 @@ for i=1:length(my_campaigns)
     vulns_strategy_autoupdate = sum(vulnerabilities_strategy_autoupdate,1);
     vulns_strategy_reactive = sum(vulnerabilities_strategy_reactive,1);
     vulns_strategy_informed_reactive = sum(vulnerabilities_strategy_informed_reactive,1);
+    vulns_strategy_reactive_on_advisory = sum(vulnerabilities_strategy_reactive_on_advisory,1);
+    vulns_strategy_informed_reactive_on_advisory = sum(vulnerabilities_strategy_informed_reactive_on_advisory,1);
 
 
     vulns_strategy_on_the_edge(vulns_strategy_on_the_edge>1)=1;
     vulns_strategy_autoupdate(vulns_strategy_autoupdate>1)=1;
     vulns_strategy_reactive(vulns_strategy_reactive>1)=1;
     vulns_strategy_informed_reactive(vulns_strategy_informed_reactive>1)=1;
+    vulns_strategy_reactive_on_advisory(vulns_strategy_reactive_on_advisory>1)=1;
+    vulns_strategy_informed_reactive_on_advisory(vulns_strategy_informed_reactive_on_advisory>1)=1;
 
     %count if the campaign had success, we do not want to count it multiple
     %time if it succeed in multiple instant of time, so if there is at
@@ -1267,12 +1599,30 @@ for i=1:length(my_campaigns)
     else
         vect_campaigns_informed_reactive = [vect_campaigns_informed_reactive;0];
     end
+
+    if sum(vulns_strategy_reactive_on_advisory)>0
+        counter_vulnerable_strategy_reactive_on_advisory = counter_vulnerable_strategy_reactive_on_advisory + 1;
+        set_camp_reactive_on_advisory = [set_camp_reactive_on_advisory ;my_campaigns(i)];
+        vect_campaigns_reactive_on_advisory = [vect_campaigns_reactive_on_advisory;1];
+    else
+        vect_campaigns_reactive_on_advisory = [vect_campaigns_reactive_on_advisory;0];
+    end
+    
+    if sum(vulns_strategy_informed_reactive_on_advisory)>0
+        counter_vulnerable_strategy_informed_reactive_on_advisory = counter_vulnerable_strategy_informed_reactive_on_advisory + 1;
+        set_camp_informed_reactive_on_advisory = [set_camp_informed_reactive_on_advisory ;my_campaigns(i)];
+        vect_campaigns_informed_reactive_on_advisory = [vect_campaigns_informed_reactive_on_advisory;1];
+    else
+        vect_campaigns_informed_reactive_on_advisory = [vect_campaigns_informed_reactive_on_advisory;0];
+    end
     
     %compute exposure in months for each campaign
     exposure_months_on_the_edge = [exposure_months_on_the_edge; length(find(vulns_strategy_on_the_edge))];
     exposure_months_autoupdate = [exposure_months_autoupdate; length(find(vulns_strategy_autoupdate))];
     exposure_months_reactive = [exposure_months_reactive; length(find(vulns_strategy_reactive))];
     exposure_months_informed_reactive = [exposure_months_informed_reactive; length(find(vulns_strategy_informed_reactive))];
+    exposure_months_reactive_on_advisory = [exposure_months_reactive_on_advisory; length(find(vulns_strategy_reactive_on_advisory))];
+    exposure_months_informed_reactive_on_advisory = [exposure_months_informed_reactive_on_advisory; length(find(vulns_strategy_informed_reactive_on_advisory))];
     
     %add to the total ones that count the campaigns each strategy is
     %vulnerable to at each instant of time
@@ -1280,6 +1630,8 @@ for i=1:length(my_campaigns)
     tot_vulns_strategy_autoupdate = tot_vulns_strategy_autoupdate + vulns_strategy_autoupdate;
     tot_vulns_strategy_reactive = tot_vulns_strategy_reactive + vulns_strategy_reactive;
     tot_vulns_strategy_informed_reactive = tot_vulns_strategy_informed_reactive + vulns_strategy_informed_reactive;
+    tot_vulns_strategy_reactive_on_advisory = tot_vulns_strategy_reactive_on_advisory + vulns_strategy_reactive_on_advisory;
+    tot_vulns_strategy_informed_reactive_on_advisory = tot_vulns_strategy_informed_reactive_on_advisory + vulns_strategy_informed_reactive_on_advisory;
 
     %add to a matrix that contains all the campaigns, this is useful to get
     %the general idea
@@ -1291,11 +1643,16 @@ set_camp_on_the_edge = unique(set_camp_on_the_edge);
 set_camp_autoupdate = unique(set_camp_autoupdate);
 set_camp_reactive = unique(set_camp_reactive);
 set_camp_informed_reactive = unique(set_camp_informed_reactive);
+set_camp_reactive_on_advisory = unique(set_camp_reactive_on_advisory);
+set_camp_informed_reactive_on_advisory = unique(set_camp_informed_reactive_on_advisory);
+
 fprintf("################\n")
 fprintf("AVG Exposure on the edge:%d\n",mean(exposure_months_on_the_edge));
 fprintf("AVG Exposure autoupdate:%d\n",mean(exposure_months_autoupdate));
 fprintf("AVG Exposure reactive:%d\n",mean(exposure_months_reactive));
 fprintf("AVG Exposure informed reactive:%d\n",mean(exposure_months_informed_reactive));
+fprintf("AVG Exposure reactive on advisory:%d\n",mean(exposure_months_reactive_on_advisory));
+fprintf("AVG Exposure informed reactive on advisory:%d\n",mean(exposure_months_informed_reactive_on_advisory));
 fprintf("################\n")
 
 %create table for exploit timeline over versions
@@ -1307,6 +1664,8 @@ table_strategy_on_the_edge.Properties.VariableNames = matlab.lang.makeValidName(
 table_strategy_autoupdate.Properties.VariableNames = matlab.lang.makeValidName(cellstr(timeline));
 table_strategy_reactive.Properties.VariableNames = matlab.lang.makeValidName(cellstr(timeline));
 table_strategy_informed_reactive.Properties.VariableNames = matlab.lang.makeValidName(cellstr(timeline));
+table_strategy_reactive_on_advisory.Properties.VariableNames = matlab.lang.makeValidName(cellstr(timeline));
+table_strategy_informed_reactive_on_advisory.Properties.VariableNames = matlab.lang.makeValidName(cellstr(timeline));
 
 table_exploits.Properties.VariableNames = matlab.lang.makeValidName(cellstr(timeline));
 
@@ -1322,6 +1681,8 @@ prob_compromise_strategy_on_the_edge = tot_vulns_strategy_on_the_edge./timeline_
 prob_compromise_strategy_autoupdate = tot_vulns_strategy_autoupdate./timeline_exploitations;
 prob_compromise_strategy_reactive = tot_vulns_strategy_reactive./timeline_exploitations;
 prob_compromise_strategy_informed_reactive = tot_vulns_strategy_informed_reactive./timeline_exploitations;
+prob_compromise_strategy_reactive_on_advisory = tot_vulns_strategy_reactive_on_advisory./timeline_exploitations;
+prob_compromise_strategy_informed_reactive_on_advisory = tot_vulns_strategy_informed_reactive_on_advisory./timeline_exploitations;
 
 %count the number of times you updates the software in the different
 %strategies, this is the cost you have
@@ -1332,7 +1693,8 @@ n_not_installed_on_the_edge = length(find(all(table2array(table_strategy_on_the_
 n_not_installed_autoupdate = length(find(all(table2array(table_strategy_autoupdate)==0,2)));
 n_not_installed_reactive = length(find(all(table2array(table_strategy_reactive)==0,2)));
 n_not_installed_informed_reactive = length(find(all(table2array(table_strategy_informed_reactive)==0,2)));
-
+n_not_installed_reactive_on_advisory = length(find(all(table2array(table_strategy_reactive_on_advisory)==0,2)));
+n_not_installed_informed_reactive_on_advisory = length(find(all(table2array(table_strategy_informed_reactive_on_advisory)==0,2)));
 
 %tot number of version available, same for all the tables
 available_versions = size(table_strategy_on_the_edge,1);
@@ -1341,21 +1703,29 @@ n_installed_on_the_edge = available_versions - n_not_installed_on_the_edge;
 n_installed_autoupdate = available_versions - n_not_installed_autoupdate;
 n_installed_reactive = available_versions - n_not_installed_reactive;
 n_installed_informed_reactive = available_versions - n_not_installed_informed_reactive;
+n_installed_reactive_on_advisory = available_versions - n_not_installed_reactive_on_advisory;
+n_installed_informed_reactive_on_advisory = available_versions - n_not_installed_informed_reactive_on_advisory;
 fprintf("Number of updates for On the Edge strategy: %d\n",n_installed_on_the_edge);
 fprintf("Number of updates for Autoupdate strategy: %d\n",n_installed_autoupdate);
 fprintf("Number of updates for Reactive strategy: %d\n",n_installed_reactive);
 fprintf("Number of updates for Informed Reactive strategy: %d\n",n_installed_informed_reactive);
+fprintf("Number of updates for Reactive strategy on advisory: %d\n",n_installed_reactive_on_advisory);
+fprintf("Number of updates for Informed Reactive strategy on advisory: %d\n",n_installed_informed_reactive_on_advisory);
 
 p_on_the_edge_constant = sum(tot_vulns_strategy_on_the_edge)/sum(timeline_exploitations);
 p_autoupdate_constant = sum(tot_vulns_strategy_autoupdate)/sum(timeline_exploitations);
 p_reactive_constant = sum(tot_vulns_strategy_reactive)/sum(timeline_exploitations);
 p_informed_reactive_constant = sum(tot_vulns_strategy_informed_reactive)/sum(timeline_exploitations);
+p_reactive_constant_on_advisory = sum(tot_vulns_strategy_reactive_on_advisory)/sum(timeline_exploitations);
+p_informed_reactive_constant_on_advisory = sum(tot_vulns_strategy_informed_reactive_on_advisory)/sum(timeline_exploitations);
 
 %probability on unique campaigns
 p_on_the_edge_constant = counter_vulnerable_strategy_on_the_edge/timeline_exploitations(end);
 p_autoupdate_constant = counter_vulnerable_strategy_autoupdate/timeline_exploitations(end);
 p_reactive_constant = counter_vulnerable_strategy_reactive/timeline_exploitations(end);
 p_informed_reactive_constant = counter_vulnerable_strategy_informed_reactive/timeline_exploitations(end);
+p_reactive_constant_on_advisory = counter_vulnerable_strategy_reactive_on_advisory/timeline_exploitations(end);
+p_informed_reactive_constant_on_advisory = counter_vulnerable_strategy_informed_reactive_on_advisory/timeline_exploitations(end);
 
 fprintf("#########################\n");
 fprintf("Constant life of campaigns\n");
@@ -1363,6 +1733,8 @@ fprintf("P(C|A) for On the Edge strategy: %d\n",p_on_the_edge_constant);
 fprintf("P(C|A) for Autoupdate strategy: %d\n",p_autoupdate_constant);
 fprintf("P(C|A) for Reactive strategy: %d\n",p_reactive_constant);
 fprintf("P(C|A) for Informed Reactive strategy: %d\n",p_informed_reactive_constant);
+fprintf("P(C|A) for Reactive strategy on advisory: %d\n",p_reactive_constant_on_advisory);
+fprintf("P(C|A) for Informed Reactive strategy on advisory: %d\n",p_informed_reactive_constant_on_advisory);
 
 % compute the odds ratio between the proactive strategy and the other
 % strategies
@@ -1370,18 +1742,26 @@ odds_on_the_edge_constant = p_on_the_edge_constant/(1-p_on_the_edge_constant);
 odds_autoupdate_constant = p_autoupdate_constant/(1-p_autoupdate_constant);
 odds_reactive_constant = p_reactive_constant/(1-p_reactive_constant);
 odds_informed_reactive_constant = p_informed_reactive_constant/(1-p_informed_reactive_constant);
+odds_reactive_constant_on_advisory = p_reactive_constant_on_advisory/(1-p_reactive_constant_on_advisory);
+odds_informed_reactive_constant_on_advisory = p_informed_reactive_constant_on_advisory/(1-p_informed_reactive_constant_on_advisory);
 
 odds_ratio_S1_S2_constant = odds_autoupdate_constant/odds_on_the_edge_constant;
 odds_ratio_S1_S3_constant = odds_reactive_constant/odds_on_the_edge_constant;
 odds_ratio_S1_S4_constant = odds_informed_reactive_constant/odds_on_the_edge_constant;
+odds_ratio_S1_S5_constant = odds_reactive_constant_on_advisory/odds_on_the_edge_constant;
+odds_ratio_S1_S6_constant = odds_informed_reactive_constant_on_advisory/odds_on_the_edge_constant;
 
 fprintf("############################\n");
 fprintf("Odds ratio constant campaigns\n");
 fprintf("Autoupdate/On the Edge: %d\n",odds_ratio_S1_S2_constant);
 fprintf("Reactive/On the Edge: %d\n",odds_ratio_S1_S3_constant);
 fprintf("Informed Reactive/On the Edge: %d\n",odds_ratio_S1_S4_constant);
+fprintf("Reactive on Advisory/On the Edge: %d\n",odds_ratio_S1_S5_constant);
+fprintf("Informed Reactive on Advisory/On the Edge: %d\n",odds_ratio_S1_S6_constant);
 
-table_final_results = [table_final_results;table(repmat(r,4,1),["edge";"autoupdate";"reactive";"informed_reactive"],[n_installed_on_the_edge;n_installed_autoupdate;n_installed_reactive;n_installed_informed_reactive],[p_on_the_edge_constant*100.0;p_autoupdate_constant*100.0;p_reactive_constant*100.0;p_informed_reactive_constant*100.0],[1;odds_ratio_S1_S2_constant;odds_ratio_S1_S3_constant;odds_ratio_S1_S4_constant],'VariableNames',{'simulation','strategy','n_updates','probability','odds'})];
+table_final_results = [table_final_results;table(repmat(r,6,1),["edge";"autoupdate";"reactive";"informed_reactive";"reactive_on_advisory";"informed_reactive_on_advisory"],[n_installed_on_the_edge;n_installed_autoupdate;n_installed_reactive;n_installed_informed_reactive;n_installed_reactive_on_advisory;n_installed_informed_reactive_on_advisory], ...
+    [p_on_the_edge_constant*100.0;p_autoupdate_constant*100.0;p_reactive_constant*100.0;p_informed_reactive_constant*100.0;p_reactive_constant_on_advisory*100.0;p_informed_reactive_constant_on_advisory*100.0], ...
+    [1;odds_ratio_S1_S2_constant;odds_ratio_S1_S3_constant;odds_ratio_S1_S4_constant;odds_ratio_S1_S5_constant;odds_ratio_S1_S6_constant],'VariableNames',{'simulation','strategy','n_updates','probability','odds'})];
 end
 
 %% AGRESTI-COULL CI
@@ -1391,6 +1771,9 @@ end
 [CI_autoupdate_min,CI_autoupdate_max] = agresti_coull(counter_vulnerable_strategy_autoupdate,timeline_exploitations(end));
 [CI_reactive_min,CI_reactive_max] = agresti_coull(counter_vulnerable_strategy_reactive,timeline_exploitations(end));
 [CI_informed_reactive_min,CI_informed_reactive_max] = agresti_coull(counter_vulnerable_strategy_informed_reactive,timeline_exploitations(end));
+[CI_reactive_on_advisory_min,CI_reactive_on_advisory_max] = agresti_coull(counter_vulnerable_strategy_reactive_on_advisory,timeline_exploitations(end));
+[CI_informed_reactive_on_advisory_min,CI_informed_reactive_on_advisory_max] = agresti_coull(counter_vulnerable_strategy_informed_reactive_on_advisory,timeline_exploitations(end));
+
 
 save CI_on_the_edge_min_1_true.mat CI_on_the_edge_min
 save CI_on_the_edge_max_1_true.mat CI_on_the_edge_max
@@ -1404,9 +1787,17 @@ save CI_reactive_max_1_true.mat CI_reactive_max
 save CI_informed_reactive_min_1_true.mat CI_informed_reactive_min
 save CI_informed_reactive_max_1_true.mat CI_informed_reactive_max
 
+save CI_reactive_on_advisory_min_1_true.mat CI_reactive_on_advisory_min
+save CI_reactive_on_advisory_max_1_true.mat CI_reactive_on_advisory_max
+
+save CI_informed_reactive_on_advisory_min_1_true.mat CI_informed_reactive_on_advisory_min
+save CI_informed_reactive_on_advisory_max_1_true.mat CI_informed_reactive_on_advisory_max
+
 figure
-x = [CI_on_the_edge_min,CI_on_the_edge_max,nan,CI_autoupdate_min,CI_autoupdate_max,nan,CI_reactive_min,CI_reactive_max,nan,CI_informed_reactive_min,CI_informed_reactive_max];
-y = [1,1,nan,1.1,1.1,nan,1.2,1.2,nan,1.3,1.3];
+x = [CI_on_the_edge_min,CI_on_the_edge_max,nan,CI_autoupdate_min,CI_autoupdate_max,nan,...
+    CI_reactive_min,CI_reactive_max,nan,CI_informed_reactive_min,CI_informed_reactive_max,nan,...
+    CI_reactive_on_advisory_min,CI_reactive_on_advisory_max,nan,CI_informed_reactive_on_advisory_min,CI_informed_reactive_on_advisory_max];
+y = [1,1,nan,1.1,1.1,nan,1.2,1.2,nan,1.3,1.3,nan,1.4,1.4,nan,1.5,1.5];
 x0=10;
 y0=10;
 width=550;
@@ -1416,12 +1807,12 @@ plot(x,y,'-')
 hold on
 scatter(x, y,'filled','o');
 xlim([0.0,1])
-ylim([0.9,1.4])
+ylim([0.9,1.6])
 yticks([1:0.1:1.5])
 xticks([0:0.1:1])
 xticklabels({0,10,20,30,40,50,60,70,80,90,100})
 a = get(gca,'YTickLabel');  
-yticklabels({'Immediate','Planned','Reactive','Informed Reactive'})
+yticklabels({'Immediate','Planned','Reactive','Informed Reactive','Reactive on Advisory','Informed Reactive on Advisory'})
 xlabel("Confidence Interval (%)")
 
 print('-depsc',strcat('CI-agresti_months_',string(avg_patch_90_months),'.eps'))
@@ -1436,6 +1827,8 @@ pr_immediate_vs_autoupdate = ~xor(vect_campaigns_on_the_edge,vect_campaigns_auto
 pr_autoupdate_vs_reactive = ~xor(vect_campaigns_autoupdate,vect_campaigns_reactive);
 pr_autoupdate_vs_informed_reactive = ~xor(vect_campaigns_autoupdate,vect_campaigns_informed_reactive);
 pr_reactive_vs_informed_reactive = ~xor(vect_campaigns_reactive,vect_campaigns_informed_reactive);
+pr_reactive_vs_reactive_on_advisory = ~xor(vect_campaigns_reactive,vect_campaigns_reactive_on_advisory);
+pr_informed_reactive_vs_informed_reactive_on_advisory = ~xor(vect_campaigns_informed_reactive,vect_campaigns_informed_reactive_on_advisory);
 fprintf("### CI COMPARISON ###\n")
 [CI_on_the_edge_vs_autoupdate_min,CI_on_the_edge_vs_autoupdate_max] = agresti_coull(sum(pr_immediate_vs_autoupdate),length(pr_immediate_vs_autoupdate));
 fprintf("CI On the Edge-Autoupdate: [%f,%f]\n",CI_on_the_edge_vs_autoupdate_min,CI_on_the_edge_vs_autoupdate_max);
@@ -1445,6 +1838,11 @@ fprintf("CI Autoupdate-Reactive: [%f,%f]\n",CI_autoupdate_vs_reactive_min,CI_aut
 fprintf("CI Autoupdate-Informed Reactive: [%f,%f]\n",CI_autoupdate_vs_informed_reactive_min,CI_autoupdate_vs_informed_reactive_max);
 [CI_reactive_vs_informed_reactive_min,CI_reactive_vs_informed_reactive_max] = agresti_coull(sum(pr_reactive_vs_informed_reactive),length(pr_reactive_vs_informed_reactive));
 fprintf("CI Reactive-Informed Reactive: [%f,%f]\n",CI_reactive_vs_informed_reactive_min,CI_reactive_vs_informed_reactive_max);
+[CI_reactive_vs_reactive_on_advisory_min,CI_reactive_vs_reactive_on_advisory_max] = agresti_coull(sum(pr_reactive_vs_reactive_on_advisory),length(pr_reactive_vs_reactive_on_advisory));
+fprintf("CI Reactive-Reactive on Advisory: [%f,%f]\n",CI_reactive_vs_reactive_on_advisory_min,CI_reactive_vs_reactive_on_advisory_max);
+[CI_informed_reactive_vs_informed_reactive_on_advisory_min,CI_informed_reactive_vs_informed_reactive_on_advisory_max] = agresti_coull(sum(pr_informed_reactive_vs_informed_reactive_on_advisory),length(pr_informed_reactive_vs_informed_reactive_on_advisory));
+fprintf("CI Informed Reactive-Informed Reactive on Advisory: [%f,%f]\n",CI_informed_reactive_vs_informed_reactive_on_advisory_min,CI_informed_reactive_vs_informed_reactive_on_advisory_max);
+
 
 %% SURVIVAL FOCUS ON SPECIFIC PRODUCTS
 %plot survival test of *FIRST* exploitation of CVEs by consider all the

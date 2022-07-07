@@ -1,4 +1,4 @@
-product,version,update,release_date,details
+product,version,update,release_date,advisory
 office,2016-*,4484221,2020-01,CVE-2020-0652
 office,2016-*,4484221,2020-01,CVE-2020-0652
 office,2016-*,4484182,2019-12,CVE-2019-1464
