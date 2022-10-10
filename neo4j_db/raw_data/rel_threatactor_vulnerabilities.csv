@@ -85,6 +85,8 @@ APT29,CVE-2013-0640,2013-02,2013-02,yes,https://securelist.com/the-miniduke-myst
 APT29,Spearphishing Attachment,2013-02,2013-02,no,https://securelist.com/the-miniduke-mystery-pdf-0-day-government-spy-assembler-0x29a-micro-backdoor/31112/,,,,,,,,,,,,,,,,,,,,
 APT29,CVE-2015-1641,2015-04,2018-10,no,https://widesecurity.net/random/apt29/,,,,,,,,,,,,,,,,,,,,
 APT29,Spearphishing Attachment,2015-04,2018-10,no,https://www.securityweek.com/russian-hackers-favor-windows-office-exploits-report,,,,,,,,,,,,,,,,,,,,
+APT29,Spearphishing Link,2015-07,2016-05,no,https://www.cisa.gov/uscert/sites/default/files/publications/JAR_16-20296A_GRIZZLY%20STEPPE-2016-1229.pdf,https://www.crowdstrike.com/blog/bears-midst-intrusion-democratic-national-committee/,,,,,,,,,,,,,,,,,,,
+APT29,Supply Chain Compromise,2020-03,2020-12,no,https://www.mandiant.com/resources/blog/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor,https://www.techtarget.com/whatis/feature/SolarWinds-hack-explained-Everything-you-need-to-know,,,,,,,,,,,,,,,,,,,
 APT3,CVE-2014-1776,2014-04,2014-05,yes,https://www.fireeye.com/blog/threat-research/2014/04/new-zero-day-exploit-targeting-internet-explorer-versions-9-through-11-identified-in-targeted-attacks.html,,,,,,,,,,,,,,,,,,,,
 APT3,Spearphishing Link,2014-04,2014-05,no,https://www.fireeye.com/blog/threat-research/2014/04/new-zero-day-exploit-targeting-internet-explorer-versions-9-through-11-identified-in-targeted-attacks.html,https://www.fireeye.com/blog/threat-research/2014/06/clandestine-fox-part-deux.html,,,,,,,,,,,,,,,,,,,
 APT3,CVE-2014-6332,2014-11,2014-11,"no
